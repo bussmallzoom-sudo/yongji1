@@ -173,13 +173,13 @@ const chatOpen = ref(false)
     </div>
 
     <!-- Hero 主視覺：全版滿屏動態影片 -->
-    <section class="relative w-full h-[calc(100vh-112px)] min-h-[540px] overflow-hidden bg-[#d8d5ce]">
+    <section class="relative w-full h-[calc(100vh-112px)] min-h-[540px] overflow-hidden bg-[#f5f5f5]">
       <video
         autoplay
         muted
         loop
         playsinline
-        poster="/images/hero-bedroom.png"
+        preload="auto"
         class="w-full h-full object-cover object-center"
       >
         <source src="/videos/hero-loop.mp4" type="video/mp4" />
@@ -321,7 +321,7 @@ const chatOpen = ref(false)
             muted
             loop
             playsinline
-            poster="/images/product-mattress.png"
+            preload="auto"
             class="w-full max-h-[680px] object-cover"
           >
             <source src="/videos/hybrid-pan.mp4" type="video/mp4" />
