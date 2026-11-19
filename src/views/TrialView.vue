@@ -11,10 +11,10 @@ import { Factory, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-nex
         ABOUT YONGJI
       </span>
       <h1 class="text-3xl sm:text-5xl font-black text-[#3c3c3c]">
-        誠信・專業・服務
+        先拿掉不適合的，再留下舒服的
       </h1>
       <p class="text-sm sm:text-base text-[#79726c] leading-relaxed">
-        永吉床墊，深耕台灣多年，是一間以「誠信、專業、服務」為核心價值的在地床墊品牌。我們深信，一張好床墊能改變一個人的生活品質；從原料挑選到製造，每一道工序都堅持 100% 台灣製造，確保每位顧客都能安心入眠。
+        永吉床墊深耕台灣多年，以「誠信、專業、服務」為核心價值。我們不急著推銷，而是陪你從現在睡得不習慣的地方聊起，縮小範圍再到店慢慢比較；材質會解釋、差異會陪你試，真正要留下的，是每天都願意躺回去的感受。
       </p>
     </section>
 

@@ -33,16 +33,16 @@ function handleKeydown(e) {
 onMounted(() => window.addEventListener('keydown', handleKeydown))
 onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
-// 僅保留 yongji.tw 真實擁有的產品分類項目（無內容項目暫時隱藏）
+// 融合主力三張床款（米羅、維納斯、睡精靈）與永吉床墊全系列
 const navDropdowns = [
   {
     id: 'mattress',
-    label: '床墊',
+    label: '主力床墊',
     items: [
+      { name: '米羅（主力推薦 01）', to: '/product/yongji-milo', image: '/images/product-mattress.png' },
+      { name: '維納斯（主力推薦 02）', to: '/product/yongji-venus', image: '/images/hero-bedroom.png' },
+      { name: '睡精靈（主力推薦 03）', to: '/product/yongji-sleep-elf', image: '/images/edge-reading.png' },
       { name: '1085 強化硬式獨立筒', to: '/product/yongji-hard-1085', image: '/images/product-mattress.png' },
-      { name: '黑武士獨立筒床墊', to: '/product/yongji-black-knight', image: '/images/hero-bedroom.png' },
-      { name: '龍品二代乳膠床墊', to: '/product/yongji-longpin-2', image: '/images/product-mattress.png' },
-      { name: '安心寶貝護脊床墊', to: '/product/yongji-anxin-baby', image: '/images/edge-reading.png' },
     ],
   },
   {
@@ -58,8 +58,7 @@ const navDropdowns = [
     label: '優客床墊系列',
     items: [
       { name: '德國優客 GH-528', to: '/product/yongji-gh-528', image: '/images/hero-bedroom.png' },
-      { name: '德國優客 GH-500 旗艦', to: '/product/yongji-gh-500', image: '/images/product-mattress.png' },
-      { name: '美國伊麗絲 ES-科技床', to: '/product/yongji-iris-es', image: '/images/hero-bedroom.png' },
+      { name: '瀏覽全部床墊', to: '/shop?category=mattress', image: '/images/product-mattress.png' },
     ],
   },
 ]

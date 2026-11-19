@@ -7,21 +7,19 @@ import {
   Factory,
   MapPin,
   Tag,
-  Truck,
+  MessageCircle,
   Check,
   ShoppingBag,
-  MessageCircle,
   X,
 } from 'lucide-vue-next'
 import { PRODUCTS, formatNTD } from '../data/products'
 import { useCartStore } from '../stores/cart'
 
 const cart = useCartStore()
-const mainMattress = PRODUCTS[0] // 1085 強化硬式獨立筒床墊
+const mainMattress = PRODUCTS[0] // 主力推薦 01：米羅
 const selectedVariant = ref(mainMattress.variants[1])
-const otherProducts = PRODUCTS.slice(1, 7)
+const shortlistProducts = PRODUCTS.slice(0, 6) // 包含米羅、維納斯、睡精靈與永吉熱銷款
 
-// 橫向滑動容器 refs
 const springsTrack = ref(null)
 const sensesTrack = ref(null)
 
@@ -30,13 +28,13 @@ function scrollTrack(trackEl, direction) {
   trackEl.scrollBy({ left: direction * 420, behavior: 'smooth' })
 }
 
-// 永吉獨立筒與硬床科技（來自 yongji.tw 真實內容）
+// 獨立筒與硬床科技（融合永吉硬床工藝）
 const springCards = [
   {
     num: '01',
     tag: '硬式獨立筒',
     title: '2.4mm 加粗鋼線支撐',
-    desc: '採用線徑加粗至 2.4mm 的高碳鋼線，是張支撐性非常足夠的獨立筒硬床，也適合 8～18 歲成長期兒童與青少年護脊。',
+    desc: '採用線徑加粗至 2.4mm 的高碳鋼線，支撐性非常足夠，也適合長輩與成長期青少年護脊需求。',
     image: '/images/product-mattress.png',
     wide: true,
   },
@@ -57,80 +55,84 @@ const springCards = [
   {
     num: '04',
     tag: '蜂巢式 vs 直排式',
-    title: '滿足不同體型軟硬需求',
-    desc: '蜂巢式排列能在同尺寸內容納更多彈簧、睡起來更硬挺；每顆彈簧獨立受力，分別支撐身體不同部位。',
+    title: '滿足兩人不同軟硬需求',
+    desc: '每顆彈簧獨立受力、降低翻身干擾；夫妻兩人的睡感不同，也能一起到店用相同順序比較交集。',
     image: '/images/store-showroom.png',
   },
 ]
 
-// 永吉「打造五感舒眠」（來自 yongji.tw 首頁真實內容）
+// 選床與五感舒眠三步驟（融合 THE YONGJI WAY + 五感舒眠）
 const sensesCards = [
   {
     num: '01',
-    tag: '觸覺與支撐',
-    title: '親膚床單 × 永吉舒適支撐',
-    desc: '選用親膚柔軟的 MIT 精製天絲床單與枕套，搭配永吉床墊依人體工學測試的彈性支撐，創造五星級睡眠儀式。',
+    tag: '先聊感受',
+    title: '說說現在睡起來哪裡不習慣',
+    desc: '不需要先背材質或硬度名詞！先告訴闆娘目前睡的床、常見睡姿與最在意的問題，從真實體感出發。',
     image: '/images/product-pillow.png',
     wide: true,
   },
   {
     num: '02',
-    tag: '視覺與溫度',
-    title: '暖黃柔光・25°C 最適睡眠溫度',
-    desc: '睡前避免強光，選用柔和暖黃燈並保持室溫約 25°C 左右，幫助身體自然進入放鬆狀態。',
+    tag: '縮小選項',
+    title: '先看三張，不用一次看三十張',
+    desc: '把複雜規格變成能感受的差異，先挑出米羅、維納斯、睡精靈三張候選床示範比較節奏。',
     image: '/images/hero-bedroom.png',
   },
   {
     num: '03',
-    tag: '聽覺與嗅覺',
-    title: '白噪音與淡淡薰衣草雪松香氣',
-    desc: '輕音樂或白噪音可幫助放鬆，搭配淡淡的薰衣草或雪松香氣，有助於安定情緒、加快入睡速度。',
+    tag: '慢慢試躺',
+    title: '用同樣姿勢比較，再放心決定',
+    desc: '材質會解釋、差異會陪你試；真正要留下的，是每天都願意躺回去的舒服感受。',
     image: '/images/store-showroom.png',
   },
 ]
 
-// 永吉真實常見問題 FAQ（四大分類切換）
-const activeFaqTab = ref('硬床與護脊')
-const faqTabs = ['硬床與護脊', '訂做與尺寸', '配送與回收', '彈簧與結構']
+// 融合到店前常見問題 01~05 與訂做配送 FAQ
+const activeFaqTab = ref('到店前必看')
+const faqTabs = ['到店前必看', '硬床與護脊', '訂做與尺寸', '配送與回收']
 const faqMap = {
+  到店前必看: [
+    {
+      q: '01 第一次到店，要怎麼開始試躺？',
+      a: '可先用 LINE 告訴闆娘目前睡的床、常見睡姿、使用人數與最在意的問題，確認門市（永和中正店或板橋門市）與時段後，再到店從少量候選床款（如米羅、維納斯、睡精靈）開始比較。',
+    },
+    {
+      q: '02 不知道自己喜歡硬床還是軟床，也可以問嗎？',
+      a: '可以！你不需要先懂材質或硬度名詞，只要描述現在的床睡起來哪裡不習慣，闆娘會協助整理比較方向，「不急著賣你，先陪你選對」。',
+    },
+    {
+      q: '03 夫妻兩人的睡感不同，怎麼選？',
+      a: '先把兩人的睡姿體感、與彼此最不能接受的感受分開說清楚，再一起到店用相同順序比較（例如低干擾的維納斯），可先透過 LINE 說明需求。',
+    },
+    {
+      q: '04 哪些床款目前可以試躺？尺寸價格怎麼確認？',
+      a: '展示床與現貨可能調整，出發前請先透過 LINE 確認當期展示床款與可預約時段；最新尺寸、價格、配送與保固條件請以 LINE 對話及門市正式確認為準。',
+    },
+  ],
   硬床與護脊: [
     {
       q: 'Q. 獨立筒床墊有硬床嗎？',
-      a: '有的，推薦您獨立筒床墊中偏硬躺感的 3 張床：\n• 硬式獨立筒：採用線徑加粗至 2.4mm 的鋼線，支撐性非常足夠。\n• 極度硬式獨立筒：接近傳統聯結式的硬挺躺感，同時保有獨立筒服貼分散壓力的優點。\n• 1085 強化硬式獨立筒：5 尺床墊放入 1,116 顆彈簧，支撐點多、綿密服貼的硬床。',
+      a: '有的，推薦您獨立筒床墊中偏硬躺感的床款：\n• 睡精靈／硬式獨立筒：2.4mm 加粗鋼線，支撐性足夠，適合長輩與護脊族群。\n• 極度硬式與 1085 強化硬式獨立筒：5 尺床墊放入 1,116 顆彈簧，支撐點多、綿密服貼的硬床。',
     },
     {
-      q: 'Q. 有兒童護脊獨立筒床墊嗎？',
-      a: '市面上的兒童護脊床墊是將獨立筒彈簧鋼線加粗以增加硬度，永吉「硬式獨立筒床墊」便是一張可以讓小朋友從 8 歲～18 歲都擁有足夠支撐的護脊床墊。',
+      q: 'Q. 有兒童或青少年護脊床墊嗎？',
+      a: '將獨立筒彈簧鋼線加粗可提供更足支撐，永吉硬式獨立筒床墊便能讓孩子從 8 歲～18 歲都擁有穩定脊椎支撐。',
     },
   ],
   訂做與尺寸: [
     {
       q: 'Q. 可訂做床墊尺寸嗎？會比較貴嗎？',
-      a: '沒問題！永吉床墊提供方形、長方形床墊尺寸訂做，最大可訂做 212 公分 × 212 公分的獨立筒床墊。\n訂做床墊以對應尺寸計價，客製化床墊不會加收額外的訂做費用，價格不會比較高。',
+      a: '沒問題！永吉提供方形、長方形床墊尺寸訂做，最大可訂做 212 公分 × 212 公分的獨立筒床墊。\n訂做床墊以對應尺寸計價，客製化床墊不會加收額外訂做費用。',
     },
     {
       q: 'Q. 購買後多久可以收到床墊呢？',
-      a: '每張床墊都是下訂後才開始製作，從訂購到收到床墊，約需 7 個工作天的製作時間，完成製作後即可為您安排配送。',
+      a: '每張床墊都是下訂後才開始製作，從訂購到收到床墊約需 7 個工作天的製作時間，完成製作後即可為您安排配送。',
     },
   ],
   配送與回收: [
     {
       q: 'Q. 運費與樓層費怎麼算？可以回收舊床嗎？',
       a: '在永吉買床墊，除少數偏遠地區皆享有「免運費、四樓以下免樓層費」，並可「免費回收清運舊床墊」（買一張免費回收一張）。',
-    },
-  ],
-  彈簧與結構: [
-    {
-      q: 'Q. 獨立筒床墊跟傳統床墊有什麼不同？',
-      a: '傳統連結式床墊彈簧相連，晃動干擾較大且腰部易有空洞；獨立筒每顆彈簧各別獨立受力、不會互相牽連，干擾性低且更符合人體工學。',
-    },
-    {
-      q: 'Q. 獨立筒床墊床邊是不是很軟？坐在床邊會滑落嗎？',
-      a: '永吉每一張床墊都有使用「強力泡棉護邊」作為床邊強化的支撐結構，讓床墊利用面積提升了 16%，翻身睡到床邊不會滑落，坐在床邊也非常穩固安心。',
-    },
-    {
-      q: 'Q. 蜂巢式獨立筒跟直排式獨立筒的差別？',
-      a: '蜂巢式獨立筒就像蜂巢排列，在相同尺寸內容納的彈簧較多；在同樣線徑與直徑下，蜂巢式排列會比直排式睡起來更硬挺。',
     },
   ],
 }
@@ -145,16 +147,16 @@ const chatOpen = ref(false)
       <div class="w-full px-4 sm:px-8 lg:px-12 h-14 flex items-center justify-between gap-3">
         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
           <a href="#story" class="px-4 py-1.5 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] bg-white text-xs text-[#3c3c3c] whitespace-nowrap transition-colors">
-            品牌精神
+            怎麼選床
+          </a>
+          <a href="#collection" class="px-4 py-1.5 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] bg-white text-xs text-[#3c3c3c] whitespace-nowrap transition-colors">
+            主力床墊
           </a>
           <a href="#springs" class="px-4 py-1.5 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] bg-white text-xs text-[#3c3c3c] whitespace-nowrap transition-colors">
-            獨立筒硬床
+            獨立筒技術
           </a>
           <a href="#edge" class="px-4 py-1.5 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] bg-white text-xs text-[#3c3c3c] whitespace-nowrap transition-colors">
             泡棉護邊
-          </a>
-          <a href="#pricing" class="px-4 py-1.5 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] bg-white text-xs text-[#3c3c3c] whitespace-nowrap transition-colors">
-            價格透明
           </a>
           <a href="#faq" class="px-4 py-1.5 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] bg-white text-xs text-[#3c3c3c] whitespace-nowrap transition-colors">
             常見問題
@@ -163,10 +165,15 @@ const chatOpen = ref(false)
 
         <div class="flex items-center gap-3 shrink-0">
           <span class="hidden md:inline text-xs text-[#79726c]">
-            台灣工廠下訂現做 <strong class="text-[#3c3c3c] font-medium">約 7 個工作天</strong> 安排配送
+            不急著賣你，先陪你選對・<strong class="text-[#3c3c3c] font-medium">永和中正店 / 板橋門市</strong>
           </span>
-          <a href="#pricing" class="px-6 py-1.5 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-medium transition-colors">
-            立即選購
+          <a
+            href="https://line.me/ti/p/bNhOSn8xqz"
+            target="_blank"
+            rel="noopener"
+            class="px-6 py-1.5 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-medium transition-colors"
+          >
+            LINE 問闆娘
           </a>
         </div>
       </div>
@@ -188,7 +195,7 @@ const chatOpen = ref(false)
 
       <div class="absolute inset-0 flex flex-col items-center justify-end pb-14 sm:pb-24 px-4 text-center select-none">
         <p class="text-base sm:text-2xl xl:text-3xl font-normal text-white tracking-wider drop-shadow-sm mb-2 sm:mb-4">
-          選對床墊，人生才會真正開始放鬆
+          買床不用懂，問闆娘就對
         </p>
         <h1 class="text-[34px] sm:text-6xl lg:text-8xl xl:text-[108px] font-black text-white tracking-[0.08em] sm:tracking-[0.14em] leading-none drop-shadow-sm">
           YONGJI BEDDING
@@ -196,14 +203,14 @@ const chatOpen = ref(false)
       </div>
     </section>
 
-    <!-- SEC 1：置中購買按鈕 + 四欄森綠手繪線條 Icon -->
+    <!-- SEC 1：置中按鈕 + 四欄森綠手繪線條 Icon（哪一種最像你？） -->
     <section v-reveal class="bg-white py-16 sm:py-24">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <a
-          href="#pricing"
+          href="#collection"
           class="inline-block px-10 py-3 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm sm:text-base font-medium transition-colors"
         >
-          逛逛床墊
+          先看三張主力床
         </a>
 
         <div class="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
@@ -217,8 +224,33 @@ const chatOpen = ref(false)
               <path d="M38 24h8" />
             </svg>
             <div class="space-y-1">
-              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">誠信・專業・服務</h3>
-              <p class="text-xs sm:text-sm text-[#79726c]">真材實料，不虛標不誇大</p>
+              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">01 軟硬拿不定</h3>
+              <p class="text-xs sm:text-sm text-[#79726c]">從現在的睡感聊起</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center space-y-3 sm:space-y-4">
+            <svg class="w-16 h-16 sm:w-22 sm:h-22 text-[#5e8f6d]" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 8v9M24 13l4 4 4-4" />
+              <path d="M12 22c10 4 22 4 32 0v18c-10 4-22 4-32 0V22z" />
+              <text x="28" y="34" text-anchor="middle" fill="currentColor" stroke="none" font-size="8.5" font-weight="700">COUPLE</text>
+            </svg>
+            <div class="space-y-1">
+              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">02 兩人感受不同</h3>
+              <p class="text-xs sm:text-sm text-[#79726c]">找彼此都舒服的交集</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center space-y-3 sm:space-y-4">
+            <svg class="w-16 h-16 sm:w-22 sm:h-22 text-[#5e8f6d]" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 16c11-2 23-2 34 0 2 8 2 16 0 24-11 2-23 2-34 0-2-8-2-16 0-24z" />
+              <path d="M9 14l3 3M47 14l-3 3M9 42l3-3M47 42l-3-3" />
+              <text x="28" y="29" text-anchor="middle" fill="currentColor" stroke="none" font-size="9.5" font-weight="700">CARE</text>
+              <text x="28" y="37" text-anchor="middle" fill="currentColor" stroke="none" font-size="6.5" font-weight="700">FAMILY</text>
+            </svg>
+            <div class="space-y-1">
+              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">03 替長輩選床</h3>
+              <p class="text-xs sm:text-sm text-[#79726c]">先整理真正的使用需求</p>
             </div>
           </div>
 
@@ -231,50 +263,29 @@ const chatOpen = ref(false)
               <path d="M36 13h5l-4 5h5" />
             </svg>
             <div class="space-y-1">
-              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">100% 台灣製造<br />工廠直送</h3>
-              <p class="text-xs sm:text-sm text-[#79726c]">多年製床師傅手工精製</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center space-y-3 sm:space-y-4">
-            <svg class="w-16 h-16 sm:w-22 sm:h-22 text-[#5e8f6d]" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 16c11-2 23-2 34 0 2 8 2 16 0 24-11 2-23 2-34 0-2-8-2-16 0-24z" />
-              <path d="M9 14l3 3M47 14l-3 3M9 42l3-3M47 42l-3-3" />
-              <text x="28" y="29" text-anchor="middle" fill="currentColor" stroke="none" font-size="9.5" font-weight="700">212×212</text>
-              <text x="28" y="37" text-anchor="middle" fill="currentColor" stroke="none" font-size="6.5" font-weight="700">CUSTOM</text>
-            </svg>
-            <div class="space-y-1">
-              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">客製化尺寸訂做</h3>
-              <p class="text-xs sm:text-sm text-[#79726c]">不加收額外訂做費用</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center space-y-3 sm:space-y-4">
-            <svg class="w-16 h-16 sm:w-22 sm:h-22 text-[#5e8f6d]" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M28 8v9M24 13l4 4 4-4" />
-              <path d="M12 22c10 4 22 4 32 0v18c-10 4-22 4-32 0V22z" />
-              <text x="28" y="34" text-anchor="middle" fill="currentColor" stroke="none" font-size="8.5" font-weight="700">FREE</text>
-            </svg>
-            <div class="space-y-1">
-              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">免運・舊床免費回收</h3>
-              <p class="text-xs sm:text-sm text-[#79726c]">四樓以下免樓層費</p>
+              <h3 class="text-base sm:text-xl lg:text-[22px] font-bold text-[#3c3c3c] leading-snug">04 直接到店試躺</h3>
+              <p class="text-xs sm:text-sm text-[#79726c]">台灣製造・免運舊床回收</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SEC 2：品牌精神與故事（淡綠柔霧漸層 + 40px 圓角白卡） -->
+    <!-- SEC 2：認識闆娘與永吉品牌精神（淡綠柔霧漸層 + 40px 圓角白卡） -->
     <section id="story" class="relative py-20 sm:py-28 bg-gradient-to-b from-white via-[#eef5f0] to-white overflow-hidden">
       <div class="w-full px-4 sm:px-10 lg:px-16">
-        <div class="relative flex flex-col items-center justify-center text-center py-8 sm:py-12">
-          <span aria-hidden="true" class="select-none pointer-events-none text-6xl sm:text-[120px] lg:text-[160px] font-extralight tracking-[0.12em] text-[#dce7df]/80 leading-none">
-            Yongji
+        <div class="relative flex flex-col items-center justify-center text-center py-8 sm:py-12 min-h-[88px] overflow-hidden">
+          <span aria-hidden="true" class="select-none pointer-events-none text-[42px] sm:text-[120px] lg:text-[160px] font-extralight tracking-[0.12em] text-[#dce7df]/80 leading-none whitespace-nowrap">
+            Yongji Way
           </span>
-          <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">永吉品牌精神</h2>
+          <h2 class="absolute px-2 text-2xl sm:text-4xl font-black text-[#4a7c59] tracking-wider leading-snug">
+            不是先背材質，是先把需求問對
+          </h2>
         </div>
 
-        <p class="text-center text-sm sm:text-base text-[#3c3c3c] mb-12 sm:mb-16">誠信・專業・服務｜價格透明。</p>
+        <p class="text-center text-sm sm:text-base text-[#3c3c3c] mb-12 sm:mb-16">
+          說說現在睡得不習慣的地方，闆娘陪你縮小範圍，再到店慢慢比較。
+        </p>
 
         <div v-reveal class="bg-white rounded-[40px] shadow-sm border border-[#e5e7eb]/60 px-6 py-10 sm:px-16 sm:py-16 max-w-6xl mx-auto space-y-12">
           <div class="max-w-2xl mx-auto">
@@ -283,17 +294,17 @@ const chatOpen = ref(false)
 
           <div class="max-w-xl mx-auto space-y-6 text-sm sm:text-[15px] text-[#3c3c3c] leading-[1.9] font-normal">
             <p>
-              永吉床墊，深耕台灣多年，是一間以「誠信、專業、服務」為核心價值的在地床墊品牌。
+              <strong>「先拿掉不適合的，再留下舒服的。」</strong><br />
+              來永吉不用先背一堆材質或硬度名詞，只要把你現在睡得不習慣的地方說出來，我們陪你一步一步縮小範圍。
             </p>
             <p>
-              我們深信，一張好床墊，能改變一個人的生活品質。<br />
-              從原料挑選到製造，每一道工序都堅持 <strong>100% 台灣製造</strong>，不虛標、不誇大，確保每位顧客都能安心入眠。
+              永吉床墊深耕台灣多年，堅持 <strong>100% 台灣製造、誠信、專業、價格透明</strong>。<br />
+              每一張床墊皆由多年經驗製床師傅手工精製而成，不虛標、不誇大。
             </p>
-            <p class="font-bold text-[#4a7c59] text-base">「我們用平實的價格，打造不平凡的睡眠體驗。」</p>
+            <p class="font-bold text-[#4a7c59] text-base">「不急著賣你，先陪你選對。」</p>
             <p>
-              每一張床墊，皆由多年經驗的製床師傅手工精製而成，<br class="hidden sm:inline" />
-              層層把關支撐力與舒適度，從諮詢到售後提供最誠懇、快速的協助，<br class="hidden sm:inline" />
-              讓您買得安心、躺得放心、睡得開心。
+              材質會解釋、差異會陪你試；真正要留下的，是每天都願意躺回去的感受。<br class="hidden sm:inline" />
+              先在線上跟闆娘聊聊需求，再預約到永和中正店或板橋門市安心慢慢躺。
             </p>
           </div>
         </div>
@@ -307,7 +318,7 @@ const chatOpen = ref(false)
           <span aria-hidden="true" class="select-none pointer-events-none text-[42px] sm:text-[110px] lg:text-[145px] font-extralight tracking-[0.1em] text-[#dce7df]/75 leading-none whitespace-nowrap">
             Good Sleep
           </span>
-          <h2 class="absolute text-2xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">好眠秘訣</h2>
+          <h2 class="absolute text-2xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">選對床墊，真正開始放鬆</h2>
         </div>
 
         <p class="text-sm sm:text-base text-[#3c3c3c] max-w-2xl mx-auto leading-[1.9] mt-2">
@@ -369,18 +380,18 @@ const chatOpen = ref(false)
       </div>
     </section>
 
-    <!-- SEC 5：Senses 打造五感舒眠（橫向滑動） -->
+    <!-- SEC 5：Senses 選床三步驟（先聊感受 → 縮小選項 → 慢慢試躺） -->
     <section class="py-20 sm:py-28 bg-white overflow-hidden border-t border-[#f5f5f5]">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
         <div class="relative flex flex-col items-center justify-center py-6">
           <span aria-hidden="true" class="select-none pointer-events-none text-6xl sm:text-[120px] font-extralight tracking-[0.12em] text-[#dce7df]/75 leading-none">
-            Senses
+            Process
           </span>
-          <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">打造「五感舒眠」</h2>
+          <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">闆娘陪你選床三步驟</h2>
         </div>
-        <p class="text-base sm:text-lg font-medium text-[#3c3c3c]">真正的好眠，不只是床墊的事。</p>
+        <p class="text-base sm:text-lg font-medium text-[#3c3c3c]">不必一次看三十張，先把感受說對最重要。</p>
         <p class="text-sm sm:text-base text-[#79726c] max-w-2xl mx-auto leading-[1.9]">
-          從燈光、氣味到音樂，每個細節都在悄悄影響你的入睡速度。搭配永吉床墊的舒適支撐，創造屬於你的五星級睡眠儀式。
+          從現在這張床睡起來哪裡不舒服開始聊起，把複雜的規格變成你躺上去就能感受的差異。
         </p>
       </div>
 
@@ -465,23 +476,25 @@ const chatOpen = ref(false)
             Experience
           </span>
           <h2 class="absolute px-2 text-xl sm:text-4xl font-black text-[#4a7c59] tracking-wider leading-snug">
-            用平實的價格，打造不平凡的睡眠體驗
+            到永和中正店或板橋門市，實際躺過再決定
           </h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <RouterLink
-            to="/about"
+          <a
+            href="https://line.me/ti/p/bNhOSn8xqz"
+            target="_blank"
+            rel="noopener"
             class="flex items-center gap-x-4 gap-y-3 rounded-[40px] bg-white p-7 md:flex-col md:px-6 md:py-9 md:text-center hover:shadow-md transition-shadow"
           >
             <div class="w-12 h-12 rounded-2xl bg-[#f5f5f5] text-[#4a7c59] flex items-center justify-center shrink-0">
-              <Factory class="w-6 h-6" />
+              <MessageCircle class="w-6 h-6" />
             </div>
             <div>
-              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">100% 台灣工廠直營</h3>
-              <p class="text-xs sm:text-sm text-[#79726c] mt-1">下訂後現做，約 7 個工作天即可安排配送。</p>
+              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">LINE 問闆娘縮小範圍</h3>
+              <p class="text-xs sm:text-sm text-[#79726c] mt-1">先用 LINE 說需求確認展示與時段，不急著推銷。</p>
             </div>
-          </RouterLink>
+          </a>
 
           <RouterLink
             to="/stores"
@@ -491,8 +504,21 @@ const chatOpen = ref(false)
               <MapPin class="w-6 h-6" />
             </div>
             <div>
-              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">板橋體驗門市</h3>
-              <p class="text-xs sm:text-sm text-[#79726c] mt-1">新北市板橋區四川路一段 85 號，歡迎親自試躺比較。</p>
+              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">永和中正・板橋門市</h3>
+              <p class="text-xs sm:text-sm text-[#79726c] mt-1">雙北雙館體驗空間，歡迎到店用相同姿勢慢慢比較。</p>
+            </div>
+          </RouterLink>
+
+          <RouterLink
+            to="/about"
+            class="flex items-center gap-x-4 gap-y-3 rounded-[40px] bg-white p-7 md:flex-col md:px-6 md:py-9 md:text-center hover:shadow-md transition-shadow"
+          >
+            <div class="w-12 h-12 rounded-2xl bg-[#f5f5f5] text-[#4a7c59] flex items-center justify-center shrink-0">
+              <Factory class="w-6 h-6" />
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">100% 台灣工廠直營</h3>
+              <p class="text-xs sm:text-sm text-[#79726c] mt-1">下訂後師傅現做約 7 個工作天，真材實料不虛標。</p>
             </div>
           </RouterLink>
 
@@ -501,18 +527,8 @@ const chatOpen = ref(false)
               <Tag class="w-6 h-6" />
             </div>
             <div>
-              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">價格透明不虛標</h3>
-              <p class="text-xs sm:text-sm text-[#79726c] mt-1">客製尺寸依對應規格計價，絕不另收訂做費用。</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-x-4 gap-y-3 rounded-[40px] bg-white p-7 md:flex-col md:px-6 md:py-9 md:text-center">
-            <div class="w-12 h-12 rounded-2xl bg-[#f5f5f5] text-[#4a7c59] flex items-center justify-center shrink-0">
-              <Truck class="w-6 h-6" />
-            </div>
-            <div>
-              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">免運費・舊床回收</h3>
-              <p class="text-xs sm:text-sm text-[#79726c] mt-1">四樓以下免樓層費，買一張免費協助清運舊床一張。</p>
+              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">價格透明・免運回收</h3>
+              <p class="text-xs sm:text-sm text-[#79726c] mt-1">客製尺寸不另加價，四樓以下免樓層費並免費收舊床。</p>
             </div>
           </div>
         </div>
@@ -523,13 +539,13 @@ const chatOpen = ref(false)
     <section id="pricing" v-reveal class="py-20 sm:py-28 bg-white">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center space-y-2 mb-12">
-          <h2 class="text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">價格透明・熱門尺寸選購</h2>
-          <p class="text-sm sm:text-base text-[#79726c]">挑選你的床架尺寸，免運費・四樓以下免樓層費</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">主力推薦・尺寸規格選購</h2>
+          <p class="text-sm sm:text-base text-[#79726c]">展示尺寸與當期優惠歡迎加入購物車試算或透過 LINE 確認</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#f5f5f5] rounded-[36px] p-6 sm:p-10">
           <div class="md:col-span-6">
-            <img src="/images/product-mattress.png" alt="1085 強化硬式獨立筒床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
+            <img src="/images/product-mattress.png" alt="米羅主力床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
           </div>
 
           <div class="md:col-span-6 space-y-6">
@@ -553,7 +569,7 @@ const chatOpen = ref(false)
 
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#e5e7eb]">
               <div>
-                <span class="text-xs text-[#79726c] block">工廠直營透明價</span>
+                <span class="text-xs text-[#79726c] block">透明參考價</span>
                 <span class="text-2xl sm:text-3xl font-black text-[#3c3c3c]">{{ formatNTD(selectedVariant.price) }}</span>
               </div>
 
@@ -569,7 +585,7 @@ const chatOpen = ref(false)
             <div class="flex flex-wrap gap-4 text-xs text-[#79726c]">
               <span class="inline-flex items-center gap-1"><Check class="w-3.5 h-3.5 text-[#4a7c59]" /> 100% 台灣製造</span>
               <span class="inline-flex items-center gap-1"><Check class="w-3.5 h-3.5 text-[#4a7c59]" /> 舊床免費清運</span>
-              <RouterLink to="/product/yongji-hard-1085" class="text-[#4a7c59] hover:underline font-medium">
+              <RouterLink to="/product/yongji-milo" class="text-[#4a7c59] hover:underline font-medium">
                 查看完整商品規格 ›
               </RouterLink>
             </div>
@@ -578,18 +594,21 @@ const chatOpen = ref(false)
       </div>
     </section>
 
-    <!-- SEC 8：Collection 永吉床墊商品一覽 -->
-    <section class="py-16 sm:py-24 bg-[#F5F5F5]">
+    <!-- SEC 8：Collection 先看三張（米羅、維納斯、睡精靈）＋永吉精選系列 -->
+    <section id="collection" class="py-16 sm:py-24 bg-[#F5F5F5]">
       <div class="w-full px-6 sm:px-12 lg:px-20">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <div class="relative flex flex-col items-center justify-center py-6 min-h-[88px] overflow-hidden">
             <span aria-hidden="true" class="select-none pointer-events-none text-[42px] sm:text-[105px] font-extralight tracking-[0.12em] text-[#dce7df] leading-none whitespace-nowrap">
-              Collection
+              Shortlist
             </span>
             <h2 class="absolute px-2 text-xl sm:text-4xl font-black text-[#4a7c59] tracking-wider leading-snug">
-              永吉床墊・德國優客・精製床包一覽
+              先看三張主力，不用一次看三十張
             </h2>
           </div>
+          <p class="text-xs sm:text-sm text-[#79726c]">
+            先用「米羅、維納斯、睡精靈」示範比較節奏，再瀏覽永吉台灣製獨立筒與優客系列
+          </p>
           <RouterLink to="/shop" class="inline-block px-6 py-2 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-bold transition-colors">
             瀏覽全部商品
           </RouterLink>
@@ -597,7 +616,7 @@ const chatOpen = ref(false)
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <RouterLink
-            v-for="item in otherProducts"
+            v-for="item in shortlistProducts"
             :key="item.id"
             :to="`/product/${item.slug}`"
             class="group bg-white rounded-[28px] overflow-hidden border border-[#e5e7eb] hover:shadow-lg transition-all flex flex-col justify-between"
@@ -618,14 +637,14 @@ const chatOpen = ref(false)
       </div>
     </section>
 
-    <!-- SEC 9：FAQ 解決你對床墊的疑問（四大分類 Tab 切換） -->
+    <!-- SEC 9：FAQ 到店前你可能會先問（四大分類 Tab 切換） -->
     <section id="faq" class="py-20 sm:py-28 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex flex-col items-center justify-center text-center py-6 mb-8">
           <span aria-hidden="true" class="select-none pointer-events-none text-6xl sm:text-[110px] font-extralight tracking-[0.12em] text-[#dce7df]/75 leading-none">
             FAQ
           </span>
-          <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">解決你對床墊的疑問</h2>
+          <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">還沒到店前，你可能會先問</h2>
         </div>
 
         <div class="flex flex-wrap justify-center gap-2 mb-10">
@@ -653,15 +672,15 @@ const chatOpen = ref(false)
       </div>
     </section>
 
-    <!-- 右下角森綠圓形浮動客服氣泡 -->
+    <!-- 右下角森綠圓形浮動諮詢氣泡 -->
     <div class="fixed bottom-5 right-5 z-40">
       <div v-if="chatOpen" class="mb-3 w-72 bg-white rounded-2xl shadow-2xl border border-[#e5e7eb] p-4 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-[#3c3c3c]">永吉床墊諮詢小幫手</span>
+          <span class="text-xs font-bold text-[#3c3c3c]">LINE 問闆娘｜先聊需求</span>
           <button @click="chatOpen = false" class="text-[#79726c] hover:text-[#3c3c3c] cursor-pointer"><X class="w-4 h-4" /></button>
         </div>
         <p class="text-xs text-[#79726c] leading-relaxed">
-          不知道床墊怎麼選嗎？歡迎直接加 LINE 諮詢，或來板橋四川路一段 85 號親自試躺！
+          從現在這張床睡起來哪裡不習慣開始就可以！闆娘幫你先縮小範圍，再預約到永和中正店或板橋門市慢慢躺。
         </p>
         <div class="flex gap-2">
           <a
@@ -670,10 +689,10 @@ const chatOpen = ref(false)
             rel="noopener"
             class="flex-1 text-center py-1.5 rounded-full bg-[#4a7c59] text-white text-xs font-medium"
           >
-            LINE 線上諮詢
+            LINE 問闆娘
           </a>
           <RouterLink to="/stores" @click="chatOpen = false" class="flex-1 text-center py-1.5 rounded-full bg-[#f5f5f5] hover:bg-[#e5e6e0] text-xs font-medium text-[#3c3c3c]">
-            門市資訊
+            門市導覽
           </RouterLink>
         </div>
       </div>
@@ -681,7 +700,7 @@ const chatOpen = ref(false)
       <button
         @click="chatOpen = !chatOpen"
         class="w-12 h-12 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white shadow-lg flex items-center justify-center transition-transform hover:scale-105 cursor-pointer ml-auto"
-        aria-label="線上諮詢"
+        aria-label="LINE 問闆娘"
       >
         <MessageCircle class="w-6 h-6" />
       </button>

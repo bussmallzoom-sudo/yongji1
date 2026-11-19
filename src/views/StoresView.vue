@@ -37,23 +37,23 @@ function closeBooking() {
       </p>
     </div>
 
-    <!-- 門市卡片 -->
-    <div class="max-w-4xl mx-auto">
+    <!-- 門市卡片（永和中正店＋板橋門市並排） -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
       <article
         v-for="store in STORES"
         :key="store.id"
-        class="bg-white rounded-3xl border border-[#e5e7eb] overflow-hidden grid grid-cols-1 md:grid-cols-12 shadow-sm"
+        class="bg-white rounded-3xl border border-[#e5e7eb] overflow-hidden flex flex-col justify-between shadow-sm"
       >
-        <div class="md:col-span-6 bg-[#f5f5f5] relative min-h-[260px]">
-          <img :src="store.image" :alt="store.name" class="w-full h-full object-cover" />
-          <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-[#4a7c59] text-xs font-bold">
-            {{ store.region }}
-          </span>
-        </div>
+        <div>
+          <div class="bg-[#f5f5f5] relative aspect-16/10">
+            <img :src="store.image" :alt="store.name" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-[#4a7c59] text-xs font-bold">
+              {{ store.region }}
+            </span>
+          </div>
 
-        <div class="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <h2 class="text-2xl font-bold text-[#3c3c3c]">{{ store.name }}</h2>
+          <div class="p-6 sm:p-8 space-y-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-[#3c3c3c]">{{ store.name }}</h2>
 
             <div class="space-y-2.5 text-sm text-[#79726c]">
               <div class="flex items-start gap-2">
@@ -80,23 +80,23 @@ function closeBooking() {
               </span>
             </div>
           </div>
+        </div>
 
-          <div class="flex flex-wrap gap-2.5">
-            <button
-              @click="openBooking(store)"
-              class="flex-1 py-3 px-4 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors cursor-pointer"
-            >
-              預約試躺（模擬）
-            </button>
-            <a
-              href="https://maps.app.goo.gl/91c7Z7x5Tju12Jrg8"
-              target="_blank"
-              rel="noopener"
-              class="py-3 px-5 rounded-full bg-[#f5f5f5] hover:bg-[#e5e6e0] text-[#3c3c3c] text-sm font-bold transition-colors"
-            >
-              Google 地圖
-            </a>
-          </div>
+        <div class="px-6 pb-6 sm:px-8 sm:pb-8 flex flex-wrap gap-2.5">
+          <button
+            @click="openBooking(store)"
+            class="flex-1 py-3 px-4 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors cursor-pointer"
+          >
+            預約試躺（模擬）
+          </button>
+          <a
+            href="https://line.me/ti/p/bNhOSn8xqz"
+            target="_blank"
+            rel="noopener"
+            class="py-3 px-5 rounded-full bg-[#f5f5f5] hover:bg-[#e5e6e0] text-[#3c3c3c] text-sm font-bold transition-colors"
+          >
+            LINE 確認時段
+          </a>
         </div>
       </article>
     </div>
