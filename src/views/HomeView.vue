@@ -204,8 +204,9 @@ const chatOpen = ref(false)
         <h1 class="text-[34px] sm:text-6xl lg:text-8xl xl:text-[108px] font-black text-white tracking-[0.08em] sm:tracking-[0.14em] leading-none drop-shadow-sm">
           YONGJI BEDDING
         </h1>
-        <p class="mt-3 text-xs sm:text-sm text-white/90 tracking-wide drop-shadow-sm max-w-xl">
-          說說現在睡得不習慣的地方，闆娘陪你縮小範圍，再到店慢慢比較・不急著賣你，先陪你選對
+        <p class="mt-3 text-xs sm:text-sm text-white/95 tracking-wide drop-shadow-sm max-w-xl leading-relaxed">
+          說說現在睡得不習慣的地方，闆娘陪你縮小範圍，再到店慢慢比較<br class="hidden sm:inline" />
+          <span class="hidden sm:inline">・</span>不急著賣你，先陪你選對
         </p>
       </div>
     </section>
@@ -279,7 +280,7 @@ const chatOpen = ref(false)
     </section>
 
     <!-- SEC 2：認識闆娘與永吉品牌精神（淡綠柔霧漸層 + 40px 圓角白卡） -->
-    <section id="story" class="relative py-20 sm:py-28 bg-gradient-to-b from-white via-[#eef5f0] to-white overflow-hidden">
+    <section id="story" class="scroll-mt-28 relative py-20 sm:py-28 bg-gradient-to-b from-white via-[#eef5f0] to-white overflow-hidden">
       <div class="w-full px-4 sm:px-10 lg:px-16">
         <div class="relative flex flex-col items-center justify-center text-center py-8 sm:py-12 min-h-[88px] overflow-hidden">
           <span aria-hidden="true" class="select-none pointer-events-none text-[42px] sm:text-[120px] lg:text-[160px] font-extralight tracking-[0.12em] text-[#dce7df]/80 leading-none whitespace-nowrap">
@@ -328,9 +329,12 @@ const chatOpen = ref(false)
           <h2 class="absolute text-2xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">選對床墊，真正開始放鬆</h2>
         </div>
 
-        <p class="text-sm sm:text-base text-[#3c3c3c] max-w-2xl mx-auto leading-[1.9] mt-2">
-          一天有三分之一的時間在床上度過，一張對的床墊，不只是支撐身體的地方，更是讓你重新充電的基地。<br />
-          永吉床墊依人體工學設計，從彈性、支撐到透氣度都經過測試，讓你每天醒來都像剛重生一樣輕盈。
+        <p class="text-sm sm:text-base text-[#3c3c3c] max-w-3xl mx-auto leading-[1.9] mt-2">
+          一天有三分之一的時間在床上度過，一張對的床墊，<br class="hidden sm:inline" />
+          不只是支撐身體的地方，更是讓你重新充電的基地。<br class="hidden sm:inline" />
+          <span class="block h-2"></span>
+          永吉床墊依人體工學設計，從彈性、支撐到透氣度都經過測試，<br class="hidden sm:inline" />
+          讓你每天醒來都像剛重生一樣輕盈。
         </p>
 
         <div class="mt-12 rounded-[32px] overflow-hidden border border-[#e5e7eb] bg-[#f5f5f5]">
@@ -349,7 +353,7 @@ const chatOpen = ref(false)
     </section>
 
     <!-- SEC 4：Springs 獨立筒硬床系列（橫向滑動） -->
-    <section id="springs" class="py-20 sm:py-28 bg-white overflow-hidden border-t border-[#f5f5f5]">
+    <section id="springs" class="scroll-mt-28 py-20 sm:py-28 bg-white overflow-hidden border-t border-[#f5f5f5]">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
         <div class="relative flex flex-col items-center justify-center py-6">
           <span aria-hidden="true" class="select-none pointer-events-none text-6xl sm:text-[120px] font-extralight tracking-[0.12em] text-[#dce7df]/75 leading-none">
@@ -358,9 +362,9 @@ const chatOpen = ref(false)
           <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">獨立筒與硬床系列</h2>
         </div>
         <p class="text-base sm:text-lg font-medium text-[#3c3c3c]">獨立筒床墊也有硬挺好支撐。</p>
-        <p class="text-sm sm:text-base text-[#79726c] max-w-2xl mx-auto leading-[1.9]">
-          獨立筒每顆彈簧各別獨立受力，不會互相牽連、干擾性低，可分別支撐身體不同部位，<br />
-          滿足不同身材體型對軟硬度的需求。
+        <p class="text-sm sm:text-base text-[#79726c] max-w-3xl mx-auto leading-[1.9]">
+          獨立筒每顆彈簧各別獨立受力，不會互相牽連、干擾性低，<br class="hidden sm:inline" />
+          可分別支撐身體不同部位，滿足不同身材體型對軟硬度的需求。
         </p>
       </div>
 
@@ -397,8 +401,9 @@ const chatOpen = ref(false)
           <h2 class="absolute text-3xl sm:text-4xl font-black text-[#4a7c59] tracking-wider">闆娘陪你選床三步驟</h2>
         </div>
         <p class="text-base sm:text-lg font-medium text-[#3c3c3c]">不必一次看三十張，先把感受說對最重要。</p>
-        <p class="text-sm sm:text-base text-[#79726c] max-w-2xl mx-auto leading-[1.9]">
-          從現在這張床睡起來哪裡不舒服開始聊起，把複雜的規格變成你躺上去就能感受的差異。
+        <p class="text-sm sm:text-base text-[#79726c] max-w-3xl mx-auto leading-[1.9]">
+          從現在這張床睡起來哪裡不舒服開始聊起，<br class="hidden sm:inline" />
+          把複雜的規格變成你躺上去就能感受的差異。
         </p>
       </div>
 
@@ -426,7 +431,7 @@ const chatOpen = ref(false)
     </section>
 
     <!-- SEC 6：Edge Support 強力泡棉護邊 + 母女坐床沿共讀大圖 -->
-    <section id="edge" v-reveal class="py-20 sm:py-28 bg-white border-t border-[#f5f5f5]">
+    <section id="edge" v-reveal class="scroll-mt-28 py-20 sm:py-28 bg-white border-t border-[#f5f5f5]">
       <div class="w-full px-6 sm:px-12 lg:px-20">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
           <div class="relative flex flex-col items-center justify-center py-6">
@@ -437,7 +442,8 @@ const chatOpen = ref(false)
           </div>
           <p class="text-base sm:text-lg font-medium text-[#3c3c3c]">床墊利用面積提升 16%，坐在床邊也非常穩固安心。</p>
           <p class="text-sm text-[#79726c] leading-relaxed">
-            永吉每一張獨立筒床墊皆採用強力泡棉護邊作為床邊強化結構，睡覺翻身睡到床邊也不會滑落。
+            永吉每一張獨立筒床墊皆採用強力泡棉護邊作為床邊強化結構，<br class="hidden sm:inline" />
+            睡覺翻身睡到床邊也不會滑落。
           </p>
         </div>
 
@@ -602,7 +608,7 @@ const chatOpen = ref(false)
     </section>
 
     <!-- SEC 8：Collection 先看三張（米羅、維納斯、睡精靈）＋永吉精選系列 -->
-    <section id="collection" class="py-16 sm:py-24 bg-[#F5F5F5]">
+    <section id="collection" class="scroll-mt-28 py-16 sm:py-24 bg-[#F5F5F5]">
       <div class="w-full px-6 sm:px-12 lg:px-20">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <div class="relative flex flex-col items-center justify-center py-6 min-h-[88px] overflow-hidden">
@@ -662,7 +668,7 @@ const chatOpen = ref(false)
     </section>
 
     <!-- SEC 9：FAQ 到店前你可能會先問（四大分類 Tab 切換） -->
-    <section id="faq" class="py-20 sm:py-28 bg-white">
+    <section id="faq" class="scroll-mt-28 py-20 sm:py-28 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex flex-col items-center justify-center text-center py-6 mb-8">
           <span aria-hidden="true" class="select-none pointer-events-none text-6xl sm:text-[110px] font-extralight tracking-[0.12em] text-[#dce7df]/75 leading-none">
@@ -701,8 +707,9 @@ const chatOpen = ref(false)
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
         <span class="text-xs font-bold tracking-widest text-[#4a7c59] uppercase">ONE MESSAGE IS ENOUGH</span>
         <h2 class="text-2xl sm:text-4xl font-black text-[#3c3c3c]">不用先做功課，問闆娘就好</h2>
-        <p class="text-sm sm:text-base text-[#79726c]">
-          從「現在這張床睡起來……」開始就可以。說說你在意的睡感，闆娘幫你縮小範圍再預約到店試躺。
+        <p class="text-sm sm:text-base text-[#79726c] leading-relaxed">
+          從「現在這張床睡起來……」開始就可以。<br class="hidden sm:inline" />
+          說說你在意的睡感，闆娘幫你縮小範圍再預約到店試躺。
         </p>
         <div class="flex flex-wrap justify-center gap-3 pt-2">
           <a

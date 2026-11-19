@@ -19,6 +19,14 @@ html {
   color: #3c3c3c;
 }
 
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 /* 隱藏橫向滑動列捲軸，保留流暢滑動手感 */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
