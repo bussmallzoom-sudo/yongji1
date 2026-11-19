@@ -18,7 +18,7 @@ import { useCartStore } from '../stores/cart'
 const cart = useCartStore()
 const mainMattress = PRODUCTS[0] // 主力推薦 01：米羅
 const selectedVariant = ref(mainMattress.variants[1])
-const shortlistProducts = PRODUCTS.slice(0, 6) // 包含米羅、維納斯、睡精靈與永吉熱銷款
+const shortlistProducts = PRODUCTS // 僅展示這三款：米羅、維納斯、睡精靈
 
 const springsTrack = ref(null)
 const sensesTrack = ref(null)
@@ -545,7 +545,7 @@ const chatOpen = ref(false)
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#f5f5f5] rounded-[36px] p-6 sm:p-10">
           <div class="md:col-span-6">
-            <img src="/images/product-mattress.png" alt="米羅主力床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
+            <img src="/images/milo.jpg" alt="米羅主力床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
           </div>
 
           <div class="md:col-span-6 space-y-6">

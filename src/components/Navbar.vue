@@ -33,32 +33,15 @@ function handleKeydown(e) {
 onMounted(() => window.addEventListener('keydown', handleKeydown))
 onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
-// 融合主力三張床款（米羅、維納斯、睡精靈）與永吉床墊全系列
+// 僅保留三款主力床墊（米羅、維納斯、睡精靈）
 const navDropdowns = [
   {
     id: 'mattress',
     label: '主力床墊',
     items: [
-      { name: '米羅（主力推薦 01）', to: '/product/yongji-milo', image: '/images/product-mattress.png' },
-      { name: '維納斯（主力推薦 02）', to: '/product/yongji-venus', image: '/images/hero-bedroom.png' },
-      { name: '睡精靈（主力推薦 03）', to: '/product/yongji-sleep-elf', image: '/images/edge-reading.png' },
-      { name: '1085 強化硬式獨立筒', to: '/product/yongji-hard-1085', image: '/images/product-mattress.png' },
-    ],
-  },
-  {
-    id: 'bedding',
-    label: '床包組',
-    items: [
-      { name: 'MIT 精製天絲床包組（昨日晴空）', to: '/product/yongji-tencel-sheets', image: '/images/product-pillow.png' },
-      { name: '瀏覽全部寢具', to: '/shop?category=bedding', image: '/images/hero-bedroom.png' },
-    ],
-  },
-  {
-    id: 'youke',
-    label: '優客床墊系列',
-    items: [
-      { name: '德國優客 GH-528', to: '/product/yongji-gh-528', image: '/images/hero-bedroom.png' },
-      { name: '瀏覽全部床墊', to: '/shop?category=mattress', image: '/images/product-mattress.png' },
+      { name: '01 米羅', to: '/product/yongji-milo', image: '/images/milo.jpg' },
+      { name: '02 維納斯', to: '/product/yongji-venus', image: '/images/venus.jpg' },
+      { name: '03 睡精靈', to: '/product/yongji-sleep-elf', image: '/images/sleep-elf.jpg' },
     ],
   },
 ]
@@ -268,14 +251,14 @@ function closeMenus() {
         <RouterLink to="/shop" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm text-[#4a7c59] font-medium">
           商店
         </RouterLink>
-        <RouterLink to="/shop?category=mattress" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
-          台灣製床墊
+        <RouterLink to="/product/yongji-milo" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
+          01 米羅
         </RouterLink>
-        <RouterLink to="/shop?category=bedding" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
-          精製床包組
+        <RouterLink to="/product/yongji-venus" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
+          02 維納斯
         </RouterLink>
-        <RouterLink to="/shop?category=youke" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
-          優客床墊系列
+        <RouterLink to="/product/yongji-sleep-elf" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
+          03 睡精靈
         </RouterLink>
         <RouterLink to="/about" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
           關於我們

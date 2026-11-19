@@ -18,12 +18,11 @@ import { MapPin, Phone } from 'lucide-vue-next'
 
         <!-- 產品系列 -->
         <div class="col-span-1 md:col-span-2 space-y-2.5 text-sm">
-          <div class="font-bold text-[#3c3c3c]">產品一覽</div>
+          <div class="font-bold text-[#3c3c3c]">主力床款</div>
           <ul class="space-y-2 text-xs sm:text-sm text-[#79726c]">
-            <li><RouterLink to="/shop?category=mattress" class="hover:text-[#4a7c59]">台灣製床墊</RouterLink></li>
-            <li><RouterLink to="/shop?category=youke" class="hover:text-[#4a7c59]">德國優客床墊系列</RouterLink></li>
-            <li><RouterLink to="/shop?category=iris" class="hover:text-[#4a7c59]">美國伊麗絲名床</RouterLink></li>
-            <li><RouterLink to="/shop?category=bedding" class="hover:text-[#4a7c59]">MIT 精製床包組</RouterLink></li>
+            <li><RouterLink to="/product/yongji-milo" class="hover:text-[#4a7c59]">01 米羅</RouterLink></li>
+            <li><RouterLink to="/product/yongji-venus" class="hover:text-[#4a7c59]">02 維納斯</RouterLink></li>
+            <li><RouterLink to="/product/yongji-sleep-elf" class="hover:text-[#4a7c59]">03 睡精靈</RouterLink></li>
           </ul>
         </div>
 

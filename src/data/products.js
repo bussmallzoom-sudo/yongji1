@@ -1,29 +1,25 @@
 /**
- * 永吉床墊產品分類定義（融合主力候選床與永吉全系列）
+ * 永吉床墊產品分類定義（僅保留三款主力床墊）
  */
 export const CATEGORIES = [
-  { id: 'all', name: '全部商品', desc: '先看三張主力，再依需求挑選' },
-  { id: 'featured', name: '主力推薦床款', desc: '米羅・維納斯・睡精靈' },
-  { id: 'mattress', name: '台灣製獨立筒', desc: '100% 台灣製造・硬床護脊首選' },
-  { id: 'youke', name: '德國優客系列', desc: '以經驗的洗鍊，創造未來' },
-  { id: 'bedding', name: '精製床包組', desc: 'MIT 精製天絲四件式床包組' },
+  { id: 'all', name: '全部床款', desc: '先看三張主力，不用一次看三十張' },
 ]
 
 /**
- * 產品資料（以最新提供之主力床款為主軸，並保留永吉經典系列）
+ * 產品資料（僅保留 米羅、維納斯、睡精靈 三款，使用對應實圖）
  */
 export const PRODUCTS = [
   {
     id: 'yongji-milo',
     slug: 'yongji-milo',
     name: '米羅',
-    subtitle: '先說你的睡感，再看它值不值得試｜均衡支撐・入門首選',
+    subtitle: '先說你的睡感，再看它值不值得試',
     category: 'featured',
-    badge: '主力推薦 01',
-    firmness: '適中均衡支撐',
+    badge: '01 主力床款',
+    firmness: '均衡支撐',
     warrantyYears: 10,
     basePrice: 15800,
-    images: ['/images/product-mattress.png', '/images/hero-bedroom.png'],
+    images: ['/images/milo.jpg', '/images/venus.jpg', '/images/sleep-elf.jpg'],
     highlights: [
       '先聊感受、縮小選項，適合拿不定軟硬度的睡眠需求',
       '100% 台灣工廠直營製作，強力泡棉護邊穩固不滑落',
@@ -49,13 +45,13 @@ export const PRODUCTS = [
     id: 'yongji-venus',
     slug: 'yongji-venus',
     name: '維納斯',
-    subtitle: '夫妻雙人共眠交集首選｜低干擾獨立筒 × 細膩包覆感',
+    subtitle: '展示尺寸與價格，以當期確認為準',
     category: 'featured',
-    badge: '主力推薦 02',
+    badge: '02 主力床款',
     firmness: '柔中帶撐・雙人低干擾',
     warrantyYears: 10,
     basePrice: 18800,
-    images: ['/images/hero-bedroom.png', '/images/product-mattress.png'],
+    images: ['/images/venus.jpg', '/images/milo.jpg', '/images/sleep-elf.jpg'],
     highlights: [
       '專為「兩人感受不同」打造，翻身互不干擾',
       '獨立筒各別受力，同時兼顧側睡服貼與仰睡腰部撐托',
@@ -78,13 +74,13 @@ export const PRODUCTS = [
     id: 'yongji-sleep-elf',
     slug: 'yongji-sleep-elf',
     name: '睡精靈',
-    subtitle: '先聊需求再決定是否列入試躺｜紮實護脊 × 長輩與硬床愛好者推薦',
+    subtitle: '先聊需求，再決定是否列入試躺',
     category: 'featured',
-    badge: '主力推薦 03',
+    badge: '03 主力床款',
     firmness: '紮實偏硬・高支撐',
     warrantyYears: 10,
     basePrice: 16800,
-    images: ['/images/edge-reading.png', '/images/product-mattress.png'],
+    images: ['/images/sleep-elf.jpg', '/images/milo.jpg', '/images/venus.jpg'],
     highlights: [
       '專為替長輩選床、或喜歡挺拔支撐感的使用者調校',
       '起身與坐床沿支撐穩定，腰背不易下陷',
@@ -101,137 +97,6 @@ export const PRODUCTS = [
     ],
     description:
       '替長輩選床不用靠猜測！先整理平常睡眠習慣與起身需求，睡精靈以穩定不塌陷的紮實結構，給予脊椎與腰部最踏實的承托。',
-  },
-  {
-    id: 'yongji-hard-1085',
-    slug: 'yongji-hard-1085',
-    name: '1085 強化硬式獨立筒床墊',
-    subtitle: '5 尺放入 1,116 顆彈簧｜高支撐護脊・綿密服貼硬床',
-    category: 'mattress',
-    badge: '護脊熱銷',
-    firmness: '強化偏硬',
-    warrantyYears: 10,
-    basePrice: 15800,
-    images: ['/images/product-mattress.png', '/images/hero-bedroom.png'],
-    highlights: [
-      '縮小彈簧徑距，5 尺床墊放入 1,116 顆獨立筒彈簧',
-      '接近傳統聯結式床墊的硬挺躺感，同時保有獨立筒服貼優點',
-      '免運費・四樓以下免樓層費・免費回收清運舊床墊',
-    ],
-    variants: [
-      { id: 'single', name: '單人加大 3.5×6.2 尺', size: '105 × 188 cm', price: 13800 },
-      { id: 'double', name: '標準雙人 5×6.2 尺', size: '150 × 188 cm', price: 15800 },
-      { id: 'queen', name: '雙人加大 6×6.2 尺', size: '180 × 188 cm', price: 18800 },
-    ],
-    specs: [
-      { label: '彈簧結構', value: '5 尺床墊放入 1,116 顆獨立筒彈簧' },
-      { label: '產地', value: '100% 台灣工廠直營製造' },
-    ],
-    description:
-      '將獨立筒彈簧縮小並提高密度，創造出接近傳統床墊的硬挺支撐力，同時保有獨立筒多點服貼、翻身低干擾的優點。',
-  },
-  {
-    id: 'yongji-black-knight',
-    slug: 'yongji-black-knight',
-    name: '黑武士獨立筒床墊',
-    subtitle: '2.4mm 加粗硬式獨立筒 × 透氣舒適層｜撐腰首選',
-    category: 'mattress',
-    badge: '工廠推薦',
-    firmness: '硬式支撐',
-    warrantyYears: 10,
-    basePrice: 15800,
-    images: ['/images/hero-bedroom.png', '/images/product-mattress.png'],
-    highlights: [
-      '線徑加粗至 2.4mm 高碳鋼線，支撐性極佳',
-      '適合青少年（8–18 歲）護脊與習慣偏硬睡感族群',
-    ],
-    variants: [
-      { id: 'single', name: '單人加大 3.5×6.2 尺', size: '105 × 188 cm', price: 13800 },
-      { id: 'double', name: '標準雙人 5×6.2 尺', size: '150 × 188 cm', price: 15800 },
-      { id: 'queen', name: '雙人加大 6×6.2 尺', size: '180 × 188 cm', price: 18800 },
-    ],
-    specs: [
-      { label: '彈簧線徑', value: '2.4mm 加粗硬式獨立筒彈簧' },
-    ],
-    description:
-      '以加粗 2.4mm 鋼線打造扎實撐托力，適合腰背需要強勁支撐、或成長中兒童與青少年的護脊需求。',
-  },
-  {
-    id: 'yongji-longpin-2',
-    slug: 'yongji-longpin-2',
-    name: '龍品二代乳膠獨立筒床墊',
-    subtitle: '天然乳膠舒壓層 × 獨立筒支撐｜平價高 CP 值之選',
-    category: 'mattress',
-    badge: '人氣款',
-    firmness: 'Q彈適中',
-    warrantyYears: 10,
-    basePrice: 16800,
-    images: ['/images/product-mattress.png'],
-    highlights: [
-      '內含天然乳膠層，服貼身形釋放肩頸壓力',
-      '台灣製床師傅層層把關，價格透明不虛標',
-    ],
-    variants: [
-      { id: 'double', name: '標準雙人 5×6.2 尺', size: '150 × 188 cm', price: 16800 },
-      { id: 'queen', name: '雙人加大 6×6.2 尺', size: '180 × 188 cm', price: 19800 },
-    ],
-    specs: [
-      { label: '核心結構', value: '天然乳膠舒適層 + 獨立筒彈簧' },
-    ],
-    description:
-      '結合天然乳膠的柔彈包覆與獨立筒的穩定支撐，讓平價也能擁有媲美專櫃等級的高品質睡眠體驗。',
-  },
-  {
-    id: 'yongji-gh-528',
-    slug: 'yongji-gh-528',
-    name: '德國優客 GH-528 床墊',
-    subtitle: '德國優客床墊系列｜經驗的洗鍊，打造細膩舒眠躺感',
-    category: 'youke',
-    badge: '優客系列',
-    firmness: '德系工藝支撐',
-    warrantyYears: 10,
-    basePrice: 18190,
-    images: ['/images/hero-bedroom.png'],
-    highlights: [
-      '德國優客經典熱銷型號，多尺寸透明標價',
-      '均衡分散身體重量，久睡不腰痠',
-    ],
-    variants: [
-      { id: 'single', name: '標準單人／單人加大', size: '依尺寸選購', price: 18190 },
-      { id: 'double', name: '標準雙人 5×6.2 尺', size: '150 × 188 cm', price: 23800 },
-      { id: 'queen', name: '雙人加大／特大', size: '180 × 188 cm 起', price: 29960 },
-    ],
-    specs: [
-      { label: '系列名稱', value: '德國優客床墊系列 GH-528' },
-    ],
-    description:
-      '德國優客床墊系列以嚴謹工藝與人體工學支撐著稱，帶來沉穩而貼合的睡眠體驗。',
-  },
-  {
-    id: 'yongji-tencel-sheets',
-    slug: 'yongji-tencel-sheets',
-    name: 'MIT 精製天絲 5 尺四件式床包組（昨日晴空）',
-    subtitle: '一組搞定｜床包＋枕套＋被套全配・親膚絲滑',
-    category: 'bedding',
-    badge: 'MIT 天絲',
-    firmness: '絲滑親膚',
-    warrantyYears: 1,
-    basePrice: 2980,
-    images: ['/images/product-pillow.png', '/images/hero-bedroom.png'],
-    highlights: [
-      '換上新床包，睡出好心情！一組搞定全室寢具',
-      '多款質感花色：昨日晴空、希語、晚香暗幽、紳士品格、清酒',
-    ],
-    variants: [
-      { id: 'sky', name: '標準雙人 5 尺｜昨日晴空', size: '床包×1 + 枕套×2 + 被套×1', price: 2980 },
-      { id: 'xiyu', name: '標準雙人 5 尺｜希語', size: '床包×1 + 枕套×2 + 被套×1', price: 2980 },
-      { id: 'sake', name: '雙人加大 6 尺｜清酒', size: '床包×1 + 枕套×2 + 被套×1', price: 3380 },
-    ],
-    specs: [
-      { label: '內容物', value: '床包 × 1、薄被套 × 1、信封枕套 × 2' },
-    ],
-    description:
-      '選用親膚柔軟的 MIT 精製天絲布料，搭配永吉床墊的舒適支撐，在家就能創造五星級睡眠儀式。',
   },
 ]
 
@@ -256,8 +121,8 @@ export const STORES = [
     address: '新北市板橋區四川路一段 85 號',
     hours: '歡迎來電或透過 LINE 預約試躺時段',
     phone: '02-2951-2738',
-    features: ['台灣工廠直營價格透明', '全系列獨立筒／乳膠床墊試躺', '支援最大 212×212cm 客製尺寸諮詢'],
-    image: '/images/hero-bedroom.png',
+    features: ['台灣工廠直營價格透明', '米羅／維納斯／睡精靈試躺比較', '支援最大 212×212cm 客製尺寸諮詢'],
+    image: '/images/milo.jpg',
   },
 ]
 
