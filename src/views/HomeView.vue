@@ -105,8 +105,12 @@ const faqMap = {
       a: '先把兩人的睡姿體感、與彼此最不能接受的感受分開說清楚，再一起到店用相同順序比較（例如低干擾的維納斯），可先透過 LINE 說明需求。',
     },
     {
-      q: '04 哪些床款目前可以試躺？尺寸價格怎麼確認？',
-      a: '展示床與現貨可能調整，出發前請先透過 LINE 確認當期展示床款與可預約時段；最新尺寸、價格、配送與保固條件請以 LINE 對話及門市正式確認為準。',
+      q: '04 哪些床款目前可以試躺？',
+      a: '展示床與現貨可能調整，出發前請先透過 LINE 確認當期展示床款（如米羅、維納斯、睡精靈）與可預約時段。',
+    },
+    {
+      q: '05 最新尺寸價格配送與保固怎麼確認？',
+      a: '不同床款與尺寸的條件可能不同，請以 LINE 對話中提供的當期資料及正式文件為準。',
     },
   ],
   硬床與護脊: [
@@ -194,12 +198,15 @@ const chatOpen = ref(false)
       <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/10 to-black/25"></div>
 
       <div class="absolute inset-0 flex flex-col items-center justify-end pb-14 sm:pb-24 px-4 text-center select-none">
-        <p class="text-base sm:text-2xl xl:text-3xl font-normal text-white tracking-wider drop-shadow-sm mb-2 sm:mb-4">
+        <p class="text-base sm:text-xl xl:text-2xl font-normal text-white tracking-wider drop-shadow-sm mb-2">
           買床不用懂，問闆娘就對
         </p>
         <h1 class="text-[34px] sm:text-6xl lg:text-8xl xl:text-[108px] font-black text-white tracking-[0.08em] sm:tracking-[0.14em] leading-none drop-shadow-sm">
           YONGJI BEDDING
         </h1>
+        <p class="mt-3 text-xs sm:text-sm text-white/90 tracking-wide drop-shadow-sm max-w-xl">
+          說說現在睡得不習慣的地方，闆娘陪你縮小範圍，再到店慢慢比較・不急著賣你，先陪你選對
+        </p>
       </div>
     </section>
 
@@ -615,24 +622,41 @@ const chatOpen = ref(false)
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <RouterLink
+          <div
             v-for="item in shortlistProducts"
             :key="item.id"
-            :to="`/product/${item.slug}`"
             class="group bg-white rounded-[28px] overflow-hidden border border-[#e5e7eb] hover:shadow-lg transition-all flex flex-col justify-between"
           >
-            <div class="aspect-4/3 overflow-hidden bg-[#f5f5f5]">
-              <img :src="item.images[0]" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-6 space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-[#4a7c59]">{{ item.badge || item.firmness }}</span>
-                <span class="text-sm font-black text-[#3c3c3c]">{{ formatNTD(item.basePrice) }} 起</span>
+            <RouterLink :to="`/product/${item.slug}`" class="block">
+              <div class="aspect-4/3 overflow-hidden bg-[#f5f5f5]">
+                <img :src="item.images[0]" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 class="text-lg font-bold text-[#3c3c3c] group-hover:text-[#4a7c59] transition-colors">{{ item.name }}</h3>
-              <p class="text-xs text-[#79726c] line-clamp-2">{{ item.subtitle }}</p>
+              <div class="p-6 pb-3 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-[#4a7c59]">{{ item.badge || item.firmness }}</span>
+                  <span class="text-sm font-black text-[#3c3c3c]">{{ formatNTD(item.basePrice) }} 起</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#3c3c3c] group-hover:text-[#4a7c59] transition-colors">{{ item.name }}</h3>
+                <p class="text-xs text-[#79726c] line-clamp-2">{{ item.subtitle }}</p>
+              </div>
+            </RouterLink>
+            <div class="px-6 pb-6 pt-2 flex items-center gap-2">
+              <a
+                href="https://line.me/ti/p/bNhOSn8xqz"
+                target="_blank"
+                rel="noopener"
+                class="px-4 py-2 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] text-xs font-bold text-[#3c3c3c] hover:text-[#4a7c59] transition-colors"
+              >
+                LINE 詢問{{ item.name }}
+              </a>
+              <RouterLink
+                :to="`/product/${item.slug}`"
+                class="px-4 py-2 rounded-full bg-[#f5f5f5] hover:bg-[#eef5f0] text-xs font-medium text-[#79726c] hover:text-[#4a7c59] transition-colors"
+              >
+                看規格
+              </RouterLink>
             </div>
-          </RouterLink>
+          </div>
         </div>
       </div>
     </section>
@@ -668,6 +692,33 @@ const chatOpen = ref(false)
             <h3 class="text-sm sm:text-base font-bold text-[#3c3c3c]">{{ item.q }}</h3>
             <p class="text-xs sm:text-sm text-[#79726c] leading-relaxed whitespace-pre-line">{{ item.a }}</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONE MESSAGE IS ENOUGH：不用先做功課，問闆娘就好 -->
+    <section class="py-16 sm:py-20 bg-[#eef5f0]">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+        <span class="text-xs font-bold tracking-widest text-[#4a7c59] uppercase">ONE MESSAGE IS ENOUGH</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-[#3c3c3c]">不用先做功課，問闆娘就好</h2>
+        <p class="text-sm sm:text-base text-[#79726c]">
+          從「現在這張床睡起來……」開始就可以。說說你在意的睡感，闆娘幫你縮小範圍再預約到店試躺。
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 pt-2">
+          <a
+            href="https://line.me/ti/p/bNhOSn8xqz"
+            target="_blank"
+            rel="noopener"
+            class="px-8 py-3 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors"
+          >
+            LINE 問闆娘
+          </a>
+          <RouterLink
+            to="/stores"
+            class="px-8 py-3 rounded-full bg-white border border-[#d1d5db] hover:border-[#4a7c59] text-[#3c3c3c] text-sm font-bold transition-colors"
+          >
+            查看永和中正店／板橋門市
+          </RouterLink>
         </div>
       </div>
     </section>
