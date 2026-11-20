@@ -10,7 +10,7 @@ import { MapPin, Phone } from 'lucide-vue-next'
       <div class="grid grid-cols-2 md:grid-cols-12 gap-8 pb-12 border-b border-[#d4d0c8]">
         <!-- 品牌簡介 -->
         <div class="col-span-2 md:col-span-4 space-y-3">
-          <div class="text-lg font-bold tracking-tight text-[#3c3c3c]">永吉床墊 YONGJI</div>
+          <div class="text-lg font-bold tracking-tight text-[#3c3c3c]">永吉床墊 ygbed</div>
           <p class="text-xs sm:text-sm text-[#79726c] leading-relaxed max-w-xs">
             深耕台灣多年，以「誠信、專業、服務」為核心價值。100% 台灣工廠直營，價格透明不虛標，由多年經驗製床師傅精製而成。
           </p>
@@ -69,7 +69,7 @@ import { MapPin, Phone } from 'lucide-vue-next'
       </div>
 
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#79726c]">
-        <span>© 2026 永吉床墊 YONGJI｜新北板橋台灣工廠直營</span>
+        <span>© 2026 永吉床墊 ygbed｜新北板橋・永和台灣工廠直營</span>
         <span>誠信・專業・服務・價格透明</span>
       </div>
     </div>

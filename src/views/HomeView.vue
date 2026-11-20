@@ -168,7 +168,7 @@ const chatOpen = ref(false)
         </div>
 
         <div class="flex items-center gap-3 shrink-0">
-          <span class="hidden md:inline text-xs text-[#79726c]">
+          <span class="hidden xl:inline text-xs text-[#79726c]">
             不急著賣你，先陪你選對・<strong class="text-[#3c3c3c] font-medium">永和中正店 / 板橋門市</strong>
           </span>
           <a
@@ -201,8 +201,8 @@ const chatOpen = ref(false)
         <p class="text-base sm:text-xl xl:text-2xl font-normal text-white tracking-wider drop-shadow-sm mb-2">
           買床不用懂，問闆娘就對
         </p>
-        <h1 class="text-[34px] sm:text-6xl lg:text-8xl xl:text-[108px] font-black text-white tracking-[0.08em] sm:tracking-[0.14em] leading-none drop-shadow-sm">
-          YONGJI BEDDING
+        <h1 class="text-[42px] sm:text-7xl lg:text-8xl xl:text-[116px] font-black text-white tracking-[0.12em] sm:tracking-[0.16em] leading-none drop-shadow-sm">
+          ygbed
         </h1>
         <p class="mt-3 text-xs sm:text-sm text-white/95 tracking-wide drop-shadow-sm max-w-xl leading-relaxed">
           說說現在睡得不習慣的地方，闆娘陪你縮小範圍，再到店慢慢比較<br class="hidden sm:inline" />
@@ -283,8 +283,8 @@ const chatOpen = ref(false)
     <section id="story" class="scroll-mt-28 relative py-20 sm:py-28 bg-gradient-to-b from-white via-[#eef5f0] to-white overflow-hidden">
       <div class="w-full px-4 sm:px-10 lg:px-16">
         <div class="relative flex flex-col items-center justify-center text-center py-8 sm:py-12 min-h-[88px] overflow-hidden">
-          <span aria-hidden="true" class="select-none pointer-events-none text-[42px] sm:text-[120px] lg:text-[160px] font-extralight tracking-[0.12em] text-[#dce7df]/80 leading-none whitespace-nowrap">
-            Yongji Way
+          <span aria-hidden="true" class="select-none pointer-events-none text-[48px] sm:text-[120px] lg:text-[160px] font-extralight tracking-[0.12em] text-[#dce7df]/80 leading-none whitespace-nowrap">
+            ygbed
           </span>
           <h2 class="absolute px-2 text-2xl sm:text-4xl font-black text-[#4a7c59] tracking-wider leading-snug">
             不是先背材質，是先把需求問對
