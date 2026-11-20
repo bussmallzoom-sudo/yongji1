@@ -61,7 +61,7 @@ const filteredProducts = computed(() => {
 <template>
   <div class="w-full px-6 sm:px-12 lg:px-20 py-12 bg-white">
     <div class="bg-[#f5f5f5] rounded-3xl p-8 sm:p-10 mb-10 border border-[#e5e7eb]">
-      <span class="text-xs font-bold tracking-widest text-[#4a7c59]">ygbed STORE</span>
+      <span class="text-xs font-bold tracking-widest text-[#4a7c59]">YGBED STORE</span>
       <h1 class="text-3xl sm:text-4xl font-black text-[#3c3c3c] mt-1">永吉床墊・全館商品</h1>
       <p class="text-sm text-[#79726c] mt-2">
         100% 台灣工廠直營，誠信品質、價格透明。除少數偏遠地區外皆享免運費、四樓以下免樓層費。

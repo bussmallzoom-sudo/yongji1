@@ -202,7 +202,7 @@ const chatOpen = ref(false)
           買床不用懂，問闆娘就對
         </p>
         <h1 class="text-[42px] sm:text-7xl lg:text-8xl xl:text-[116px] font-black text-white tracking-[0.12em] sm:tracking-[0.16em] leading-none drop-shadow-sm">
-          ygbed
+          YGBED
         </h1>
         <p class="mt-3 text-xs sm:text-sm text-white/95 tracking-wide drop-shadow-sm max-w-xl leading-relaxed">
           說說現在睡得不習慣的地方，闆娘陪你縮小範圍，再到店慢慢比較<br class="hidden sm:inline" />
@@ -284,7 +284,7 @@ const chatOpen = ref(false)
       <div class="w-full px-4 sm:px-10 lg:px-16">
         <div class="relative flex flex-col items-center justify-center text-center py-8 sm:py-12 min-h-[88px] overflow-hidden">
           <span aria-hidden="true" class="select-none pointer-events-none text-[48px] sm:text-[120px] lg:text-[160px] font-extralight tracking-[0.12em] text-[#dce7df]/80 leading-none whitespace-nowrap">
-            ygbed
+            YGBED
           </span>
           <h2 class="absolute px-2 text-2xl sm:text-4xl font-black text-[#4a7c59] tracking-wider leading-snug">
             不是先背材質，是先把需求問對

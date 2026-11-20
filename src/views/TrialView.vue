@@ -8,7 +8,7 @@ import { Factory, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-nex
     <!-- 標頭 -->
     <section class="text-center space-y-4 max-w-3xl mx-auto">
       <span class="inline-block px-4 py-1 rounded-full bg-[#eef5f0] text-[#4a7c59] text-xs font-bold tracking-widest">
-        ABOUT ygbed
+        ABOUT YGBED
       </span>
       <h1 class="text-3xl sm:text-5xl font-black text-[#3c3c3c]">
         先拿掉不適合的，再留下舒服的
