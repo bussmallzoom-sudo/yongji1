@@ -40,7 +40,7 @@ const router = createRouter({
       path: '/stores',
       name: 'stores',
       component: StoresView,
-      meta: { title: '聯絡我們・板橋門市｜永吉' },
+      meta: { title: '聯絡我們・永和中正店｜永吉' },
     },
     {
       path: '/:pathMatch(.*)*',

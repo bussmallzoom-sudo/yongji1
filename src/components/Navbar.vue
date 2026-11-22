@@ -33,15 +33,15 @@ function handleKeydown(e) {
 onMounted(() => window.addEventListener('keydown', handleKeydown))
 onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
-// 僅保留三款主力床墊（米羅、維納斯、睡精靈）
+// 展示床款清單（名稱待確認後更新）
 const navDropdowns = [
   {
     id: 'mattress',
     label: '主力床墊',
     items: [
-      { name: '01 米羅', to: '/product/yongji-milo', image: '/images/milo.jpg' },
-      { name: '02 維納斯', to: '/product/yongji-venus', image: '/images/venus.jpg' },
-      { name: '03 睡精靈', to: '/product/yongji-sleep-elf', image: '/images/sleep-elf.jpg' },
+      { name: '01 精選展示床款', to: '/product/yongji-model-01', image: '/images/milo.jpg' },
+      { name: '02 精選展示床款', to: '/product/yongji-model-02', image: '/images/venus.jpg' },
+      { name: '03 精選展示床款', to: '/product/yongji-model-03', image: '/images/sleep-elf.jpg' },
     ],
   },
 ]
@@ -134,9 +134,9 @@ function closeMenus() {
         <!-- 最右側：電話聯絡、購物車、搜尋 -->
         <div class="flex items-center gap-3.5 shrink-0">
           <a
-            href="tel:0229512738"
+            href="tel:0289414197"
             class="p-1 text-[#3c3c3c] hover:text-[#4a7c59] transition-colors"
-            title="撥打板橋門市 02-2951-2738"
+            title="撥打永和中正店 02-8941-4197"
             aria-label="電話聯絡"
           >
             <Phone class="w-[18px] h-[18px]" stroke-width="1.5" />
@@ -251,14 +251,14 @@ function closeMenus() {
         <RouterLink to="/shop" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm text-[#4a7c59] font-medium">
           商店
         </RouterLink>
-        <RouterLink to="/product/yongji-milo" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
-          01 米羅
+        <RouterLink to="/product/yongji-model-01" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
+          01 精選展示床款
         </RouterLink>
-        <RouterLink to="/product/yongji-venus" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
-          02 維納斯
+        <RouterLink to="/product/yongji-model-02" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
+          02 精選展示床款
         </RouterLink>
-        <RouterLink to="/product/yongji-sleep-elf" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
-          03 睡精靈
+        <RouterLink to="/product/yongji-model-03" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
+          03 精選展示床款
         </RouterLink>
         <RouterLink to="/about" @click="closeMenus" class="block px-3 py-2 rounded-lg hover:bg-[#f5f5f5] text-sm">
           關於我們

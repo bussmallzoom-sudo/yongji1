@@ -12,13 +12,13 @@ import {
   ShoppingBag,
   X,
 } from 'lucide-vue-next'
-import { PRODUCTS, formatNTD } from '../data/products'
+import { PRODUCTS, LINE_URL, STORE_ADDRESS, STORE_PHONE_DISPLAY, formatNTD } from '../data/products'
 import { useCartStore } from '../stores/cart'
 
 const cart = useCartStore()
-const mainMattress = PRODUCTS[0] // 主力推薦 01：米羅
+const mainMattress = PRODUCTS[0]
 const selectedVariant = ref(mainMattress.variants[1])
-const shortlistProducts = PRODUCTS // 僅展示這三款：米羅、維納斯、睡精靈
+const shortlistProducts = PRODUCTS
 
 const springsTrack = ref(null)
 const sensesTrack = ref(null)
@@ -75,7 +75,7 @@ const sensesCards = [
     num: '02',
     tag: '縮小選項',
     title: '先看三張，不用一次看三十張',
-    desc: '把複雜規格變成能感受的差異，先挑出米羅、維納斯、睡精靈三張候選床示範比較節奏。',
+    desc: '把複雜規格變成能感受的差異，先挑出三張門市展示床款示範比較節奏。',
     image: '/images/hero-bedroom.png',
   },
   {
@@ -94,7 +94,7 @@ const faqMap = {
   到店前必看: [
     {
       q: '01 第一次到店，要怎麼開始試躺？',
-      a: '可先用 LINE 告訴闆娘目前睡的床、常見睡姿、使用人數與最在意的問題，確認門市（永和中正店或板橋門市）與時段後，再到店從少量候選床款（如米羅、維納斯、睡精靈）開始比較。',
+      a: '可先用 LINE（h668899）告訴闆娘目前睡的床、常見睡姿、使用人數與最在意的問題，確認永和中正店與時段後，再到店從少量候選床款開始比較。',
     },
     {
       q: '02 不知道自己喜歡硬床還是軟床，也可以問嗎？',
@@ -102,21 +102,21 @@ const faqMap = {
     },
     {
       q: '03 夫妻兩人的睡感不同，怎麼選？',
-      a: '先把兩人的睡姿體感、與彼此最不能接受的感受分開說清楚，再一起到店用相同順序比較（例如低干擾的維納斯），可先透過 LINE 說明需求。',
+      a: '先把兩人的睡姿體感、與彼此最不能接受的感受分開說清楚，再一起到店用相同順序比較，可先透過 LINE（h668899）說明需求。',
     },
     {
       q: '04 哪些床款目前可以試躺？',
-      a: '展示床與現貨可能調整，出發前請先透過 LINE 確認當期展示床款（如米羅、維納斯、睡精靈）與可預約時段。',
+      a: '展示床與現貨可能調整，出發前請先透過 LINE（h668899）確認當期展示床款與可預約時段。',
     },
     {
       q: '05 最新尺寸價格配送與保固怎麼確認？',
-      a: '不同床款與尺寸的條件可能不同，請以 LINE 對話中提供的當期資料及正式文件為準。',
+      a: '不同床款與尺寸的條件可能不同，價格以門市與 LINE 報價為準，請以 LINE 對話中提供的當期資料及正式文件為準。',
     },
   ],
   硬床與護脊: [
     {
       q: 'Q. 獨立筒床墊有硬床嗎？',
-      a: '有的，推薦您獨立筒床墊中偏硬躺感的床款：\n• 睡精靈／硬式獨立筒：2.4mm 加粗鋼線，支撐性足夠，適合長輩與護脊族群。\n• 極度硬式與 1085 強化硬式獨立筒：5 尺床墊放入 1,116 顆彈簧，支撐點多、綿密服貼的硬床。',
+      a: '有的！永吉提供多款不同硬度的獨立筒與強化支撐床款，從 2.4mm 加粗鋼線到高密度彈簧配置皆有展示，歡迎來永和中正店實際試躺比較。',
     },
     {
       q: 'Q. 有兒童或青少年護脊床墊嗎？',
@@ -169,10 +169,10 @@ const chatOpen = ref(false)
 
         <div class="flex items-center gap-3 shrink-0">
           <span class="hidden xl:inline text-xs text-[#79726c]">
-            不急著賣你，先陪你選對・<strong class="text-[#3c3c3c] font-medium">永和中正店 / 板橋門市</strong>
+            不急著賣你，先陪你選對・<strong class="text-[#3c3c3c] font-medium">永和中正店（{{ STORE_ADDRESS }}）</strong>
           </span>
           <a
-            href="https://line.me/ti/p/bNhOSn8xqz"
+            :href="LINE_URL"
             target="_blank"
             rel="noopener"
             class="px-6 py-1.5 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-medium transition-colors"
@@ -312,7 +312,7 @@ const chatOpen = ref(false)
             <p class="font-bold text-[#4a7c59] text-base">「不急著賣你，先陪你選對。」</p>
             <p>
               材質會解釋、差異會陪你試；真正要留下的，是每天都願意躺回去的感受。<br class="hidden sm:inline" />
-              先在線上跟闆娘聊聊需求，再預約到永和中正店或板橋門市安心慢慢躺。
+              先在線上跟闆娘聊聊需求（LINE：h668899），再預約到永和中正店安心慢慢躺。
             </p>
           </div>
         </div>
@@ -489,13 +489,13 @@ const chatOpen = ref(false)
             Experience
           </span>
           <h2 class="absolute px-2 text-xl sm:text-4xl font-black text-[#4a7c59] tracking-wider leading-snug">
-            到永和中正店或板橋門市，實際躺過再決定
+            到永和中正店，實際躺過再決定
           </h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <a
-            href="https://line.me/ti/p/bNhOSn8xqz"
+            :href="LINE_URL"
             target="_blank"
             rel="noopener"
             class="flex items-center gap-x-4 gap-y-3 rounded-[40px] bg-white p-7 md:flex-col md:px-6 md:py-9 md:text-center hover:shadow-md transition-shadow"
@@ -505,7 +505,7 @@ const chatOpen = ref(false)
             </div>
             <div>
               <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">LINE 問闆娘縮小範圍</h3>
-              <p class="text-xs sm:text-sm text-[#79726c] mt-1">先用 LINE 說需求確認展示與時段，不急著推銷。</p>
+              <p class="text-xs sm:text-sm text-[#79726c] mt-1">先用 LINE（h668899）說需求確認時段，不急著推銷。</p>
             </div>
           </a>
 
@@ -517,8 +517,8 @@ const chatOpen = ref(false)
               <MapPin class="w-6 h-6" />
             </div>
             <div>
-              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">永和中正・板橋門市</h3>
-              <p class="text-xs sm:text-sm text-[#79726c] mt-1">雙北雙館體驗空間，歡迎到店用相同姿勢慢慢比較。</p>
+              <h3 class="text-base sm:text-lg font-bold text-[#3c3c3c]">永和中正店體驗</h3>
+              <p class="text-xs sm:text-sm text-[#79726c] mt-1">{{ STORE_ADDRESS }}（{{ STORE_PHONE_DISPLAY }}），歡迎來慢慢比較。</p>
             </div>
           </RouterLink>
 
@@ -558,7 +558,7 @@ const chatOpen = ref(false)
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#f5f5f5] rounded-[36px] p-6 sm:p-10">
           <div class="md:col-span-6">
-            <img src="/images/milo.jpg" alt="米羅主力床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
+            <img src="/images/milo.jpg" alt="永吉精選展示床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
           </div>
 
           <div class="md:col-span-6 space-y-6">
@@ -582,24 +582,26 @@ const chatOpen = ref(false)
 
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#e5e7eb]">
               <div>
-                <span class="text-xs text-[#79726c] block">透明參考價</span>
-                <span class="text-2xl sm:text-3xl font-black text-[#3c3c3c]">{{ formatNTD(selectedVariant.price) }}</span>
+                <span class="text-xs text-[#79726c] block">報價說明</span>
+                <span class="text-base sm:text-lg font-black text-[#4a7c59]">{{ formatNTD(selectedVariant.price) }}</span>
               </div>
 
-              <button
-                @click="cart.addItem(mainMattress, selectedVariant, 1)"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors cursor-pointer"
+              <a
+                :href="LINE_URL"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors"
               >
-                <ShoppingBag class="w-4 h-4" />
-                <span>加入購物車</span>
-              </button>
+                <MessageCircle class="w-4 h-4" />
+                <span>LINE 詢問報價</span>
+              </a>
             </div>
 
             <div class="flex flex-wrap gap-4 text-xs text-[#79726c]">
               <span class="inline-flex items-center gap-1"><Check class="w-3.5 h-3.5 text-[#4a7c59]" /> 100% 台灣製造</span>
               <span class="inline-flex items-center gap-1"><Check class="w-3.5 h-3.5 text-[#4a7c59]" /> 舊床免費清運</span>
-              <RouterLink to="/product/yongji-milo" class="text-[#4a7c59] hover:underline font-medium">
-                查看完整商品規格 ›
+              <RouterLink to="/product/yongji-model-01" class="text-[#4a7c59] hover:underline font-medium">
+                查看詳細說明 ›
               </RouterLink>
             </div>
           </div>
@@ -607,7 +609,7 @@ const chatOpen = ref(false)
       </div>
     </section>
 
-    <!-- SEC 8：Collection 先看三張（米羅、維納斯、睡精靈）＋永吉精選系列 -->
+    <!-- SEC 8：Collection 先看三張展示床款 -->
     <section id="collection" class="scroll-mt-28 py-16 sm:py-24 bg-[#F5F5F5]">
       <div class="w-full px-6 sm:px-12 lg:px-20">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
@@ -620,10 +622,10 @@ const chatOpen = ref(false)
             </h2>
           </div>
           <p class="text-xs sm:text-sm text-[#79726c]">
-            先用「米羅、維納斯、睡精靈」示範比較節奏，再瀏覽永吉台灣製獨立筒與優客系列
+            實際展示床款與價格以永和中正店及 LINE（h668899）報價為準，歡迎先聊聊再試躺
           </p>
           <RouterLink to="/shop" class="inline-block px-6 py-2 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-bold transition-colors">
-            瀏覽全部商品
+            瀏覽展示床款
           </RouterLink>
         </div>
 
@@ -638,9 +640,9 @@ const chatOpen = ref(false)
                 <img :src="item.images[0]" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div class="p-6 pb-3 space-y-2">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between gap-2">
                   <span class="text-xs font-bold text-[#4a7c59]">{{ item.badge || item.firmness }}</span>
-                  <span class="text-sm font-black text-[#3c3c3c]">{{ formatNTD(item.basePrice) }} 起</span>
+                  <span class="text-[11px] font-medium text-[#79726c]">{{ formatNTD(item.basePrice) }}</span>
                 </div>
                 <h3 class="text-lg font-bold text-[#3c3c3c] group-hover:text-[#4a7c59] transition-colors">{{ item.name }}</h3>
                 <p class="text-xs text-[#79726c] line-clamp-2">{{ item.subtitle }}</p>
@@ -648,12 +650,12 @@ const chatOpen = ref(false)
             </RouterLink>
             <div class="px-6 pb-6 pt-2 flex items-center gap-2">
               <a
-                href="https://line.me/ti/p/bNhOSn8xqz"
+                :href="LINE_URL"
                 target="_blank"
                 rel="noopener"
                 class="px-4 py-2 rounded-full border border-[#d1d5db] hover:border-[#4a7c59] text-xs font-bold text-[#3c3c3c] hover:text-[#4a7c59] transition-colors"
               >
-                LINE 詢問{{ item.name }}
+                LINE 詢問報價
               </a>
               <RouterLink
                 :to="`/product/${item.slug}`"
@@ -713,18 +715,18 @@ const chatOpen = ref(false)
         </p>
         <div class="flex flex-wrap justify-center gap-3 pt-2">
           <a
-            href="https://line.me/ti/p/bNhOSn8xqz"
+            :href="LINE_URL"
             target="_blank"
             rel="noopener"
             class="px-8 py-3 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors"
           >
-            LINE 問闆娘
+            LINE 問闆娘（h668899）
           </a>
           <RouterLink
             to="/stores"
             class="px-8 py-3 rounded-full bg-white border border-[#d1d5db] hover:border-[#4a7c59] text-[#3c3c3c] text-sm font-bold transition-colors"
           >
-            查看永和中正店／板橋門市
+            查看永和中正店位置
           </RouterLink>
         </div>
       </div>
@@ -734,15 +736,15 @@ const chatOpen = ref(false)
     <div class="fixed bottom-5 right-5 z-40">
       <div v-if="chatOpen" class="mb-3 w-72 bg-white rounded-2xl shadow-2xl border border-[#e5e7eb] p-4 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-[#3c3c3c]">LINE 問闆娘｜先聊需求</span>
+          <span class="text-xs font-bold text-[#3c3c3c]">LINE 問闆娘｜ID：h668899</span>
           <button @click="chatOpen = false" class="text-[#79726c] hover:text-[#3c3c3c] cursor-pointer"><X class="w-4 h-4" /></button>
         </div>
         <p class="text-xs text-[#79726c] leading-relaxed">
-          從現在這張床睡起來哪裡不習慣開始就可以！闆娘幫你先縮小範圍，再預約到永和中正店或板橋門市慢慢躺。
+          從現在這張床睡起來哪裡不習慣開始就可以！闆娘幫你先縮小範圍，再預約到永和中正店（{{ STORE_ADDRESS }}）慢慢躺。
         </p>
         <div class="flex gap-2">
           <a
-            href="https://line.me/ti/p/bNhOSn8xqz"
+            :href="LINE_URL"
             target="_blank"
             rel="noopener"
             class="flex-1 text-center py-1.5 rounded-full bg-[#4a7c59] text-white text-xs font-medium"

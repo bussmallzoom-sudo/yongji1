@@ -64,7 +64,7 @@ import { Factory, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-nex
         to="/stores"
         class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#f5f5f5] hover:bg-[#e5e6e0] text-[#3c3c3c] text-sm font-bold transition-colors"
       >
-        <span>前往板橋門市試躺</span>
+        <span>前往永和中正店試躺</span>
       </RouterLink>
     </div>
   </div>

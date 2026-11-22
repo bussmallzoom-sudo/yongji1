@@ -57,8 +57,7 @@ function quickAdd() {
 
       <div class="pt-3 border-t border-[#f5f5f5] flex items-center justify-between gap-2">
         <div>
-          <span class="text-[11px] text-[#79726c] block">透明價</span>
-          <span class="text-lg font-black text-[#3c3c3c]">{{ formatNTD(product.basePrice) }}</span>
+          <span class="text-xs font-bold text-[#4a7c59]">{{ formatNTD(product.basePrice) }}</span>
         </div>
 
         <div class="flex items-center gap-2">

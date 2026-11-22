@@ -11,7 +11,7 @@ import {
   ShoppingBag,
   ChevronRight,
 } from 'lucide-vue-next'
-import { PRODUCTS, formatNTD } from '../data/products'
+import { PRODUCTS, LINE_URL, formatNTD } from '../data/products'
 import { useCartStore } from '../stores/cart'
 import ProductCard from '../components/ProductCard.vue'
 
@@ -94,7 +94,7 @@ function handleAddToCart() {
           <p class="text-sm text-[#79726c]">{{ product.subtitle }}</p>
         </div>
 
-        <div class="text-3xl font-black text-[#3c3c3c]">
+        <div class="text-xl sm:text-2xl font-black text-[#4a7c59]">
           {{ formatNTD(selectedVariant.price) }}
         </div>
 
@@ -145,7 +145,17 @@ function handleAddToCart() {
             </button>
           </div>
 
+          <a
+            v-if="!selectedVariant.price || selectedVariant.price <= 0"
+            :href="LINE_URL"
+            target="_blank"
+            rel="noopener"
+            class="flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-all"
+          >
+            <span>LINE 問闆娘報價（h668899）</span>
+          </a>
           <button
+            v-else
             @click="handleAddToCart"
             class="flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-all cursor-pointer"
           >
