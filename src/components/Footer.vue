@@ -13,7 +13,7 @@ import { LINE_URL, STORE_ADDRESS, STORE_MAP_URL, STORE_PHONE_DISPLAY, STORE_PHON
         <div class="col-span-2 md:col-span-4 space-y-3">
           <div class="text-lg font-bold tracking-tight text-[#3c3c3c]">永吉床墊 YGBED</div>
           <p class="text-xs sm:text-sm text-[#79726c] leading-relaxed max-w-xs">
-            深耕台灣多年，以「誠信、專業、服務」為核心價值。100% 台灣工廠直營，不急著推銷，先陪你選對好床。
+            永吉床墊永和中正店，以「誠信、專業、服務」為核心，闆娘一對一陪你選床，到店實際試躺再決定。
           </p>
         </div>
 
@@ -31,7 +31,7 @@ import { LINE_URL, STORE_ADDRESS, STORE_MAP_URL, STORE_PHONE_DISPLAY, STORE_PHON
         <div class="col-span-1 md:col-span-2 space-y-2.5 text-sm">
           <div class="font-bold text-[#3c3c3c]">品牌資訊</div>
           <ul class="space-y-2 text-xs sm:text-sm text-[#79726c]">
-            <li><RouterLink to="/about" class="hover:text-[#4a7c59]">關於永吉</RouterLink></li>
+            <li><RouterLink to="/about" class="hover:text-[#4a7c59]">認識闆娘</RouterLink></li>
             <li><RouterLink to="/stores" class="hover:text-[#4a7c59]">永和中正店</RouterLink></li>
             <li><a :href="LINE_URL" target="_blank" rel="noopener" class="hover:text-[#4a7c59]">LINE 問闆娘 (h668899)</a></li>
           </ul>

@@ -1,24 +1,14 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ShoppingBag } from 'lucide-vue-next'
-import { formatNTD } from '../data/products'
-import { useCartStore } from '../stores/cart'
+import { MessageCircle } from 'lucide-vue-next'
+import { LINE_URL, formatNTD } from '../data/products'
 
-const props = defineProps({
+defineProps({
   product: {
     type: Object,
     required: true,
   },
 })
-
-const cart = useCartStore()
-
-function quickAdd() {
-  const defaultVariant = props.product.variants[0]
-  if (defaultVariant) {
-    cart.addItem(props.product, defaultVariant, 1)
-  }
-}
 </script>
 
 <template>
@@ -55,25 +45,24 @@ function quickAdd() {
         </p>
       </div>
 
-      <div class="pt-3 border-t border-[#f5f5f5] flex items-center justify-between gap-2">
-        <div>
-          <span class="text-xs font-bold text-[#4a7c59]">{{ formatNTD(product.basePrice) }}</span>
-        </div>
+      <div class="pt-3 border-t border-[#f5f5f5] flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-bold text-[#4a7c59]">{{ formatNTD(product.basePrice) }}</span>
 
         <div class="flex items-center gap-2">
-          <button
-            @click="quickAdd"
-            class="p-2.5 rounded-full bg-[#f5f5f5] hover:bg-[#4a7c59] text-[#3c3c3c] hover:text-white transition-colors cursor-pointer"
-            title="快速加入購物車（預設規格）"
-            aria-label="快速加入購物車"
+          <a
+            :href="LINE_URL"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1 px-3.5 py-2 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-bold transition-colors"
           >
-            <ShoppingBag class="w-4 h-4" />
-          </button>
+            <MessageCircle class="w-3.5 h-3.5" />
+            <span>LINE 問這張床</span>
+          </a>
           <RouterLink
             :to="`/product/${product.slug}`"
-            class="px-4 py-2 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-bold transition-colors"
+            class="px-3.5 py-2 rounded-full bg-[#f5f5f5] hover:bg-[#eef5f0] text-[#3c3c3c] hover:text-[#4a7c59] text-xs font-bold transition-colors"
           >
-            選規格
+            看介紹
           </RouterLink>
         </div>
       </div>

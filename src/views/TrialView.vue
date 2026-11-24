@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { Factory, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-next'
+import { MessageCircle, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-next'
+import { LINE_URL } from '../data/products'
 </script>
 
 <template>
@@ -22,21 +23,21 @@ import { Factory, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-nex
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <div class="bg-[#f5f5f5] p-8 rounded-[32px] space-y-3">
         <div class="w-12 h-12 rounded-2xl bg-white text-[#4a7c59] flex items-center justify-center">
-          <ShieldCheck class="w-6 h-6" />
+          <MessageCircle class="w-6 h-6" />
         </div>
-        <h3 class="text-lg font-bold text-[#3c3c3c]">誠信・價格透明</h3>
+        <h3 class="text-lg font-bold text-[#3c3c3c]">先聊感受，不用先背材質</h3>
         <p class="text-sm text-[#79726c] leading-relaxed">
-          我們堅持真材實料，不虛標、不誇大，客製化尺寸依對應規格計價，絕不加收額外訂做費。
+          不必先懂複雜的硬度或材質名詞，只要說出現在睡起來哪裡不習慣，闆娘陪你整理比較方向。
         </p>
       </div>
 
       <div class="bg-[#f5f5f5] p-8 rounded-[32px] space-y-3">
         <div class="w-12 h-12 rounded-2xl bg-white text-[#4a7c59] flex items-center justify-center">
-          <Factory class="w-6 h-6" />
+          <ShieldCheck class="w-6 h-6" />
         </div>
-        <h3 class="text-lg font-bold text-[#3c3c3c]">專業・台灣師傅手工製作</h3>
+        <h3 class="text-lg font-bold text-[#3c3c3c]">誠信・價格透明報價</h3>
         <p class="text-sm text-[#79726c] leading-relaxed">
-          每一張床墊皆由多年經驗製床師傅下訂後現做，約 7 個工作天製作完成並層層把關。
+          我們堅持真材實料，不虛標、不誇大，不同尺寸與床款以門市及 LINE 實際報價為準。
         </p>
       </div>
 
@@ -44,22 +45,24 @@ import { Factory, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-vue-nex
         <div class="w-12 h-12 rounded-2xl bg-white text-[#4a7c59] flex items-center justify-center">
           <HeartHandshake class="w-6 h-6" />
         </div>
-        <h3 class="text-lg font-bold text-[#3c3c3c]">服務・貼心配送清運</h3>
+        <h3 class="text-lg font-bold text-[#3c3c3c]">不急著賣你，先陪你選對</h3>
         <p class="text-sm text-[#79726c] leading-relaxed">
-          從線上諮詢到售後服務提供最誠懇迅速的協助，免運費、四樓以下免樓層費並免費回收舊床一張。
+          出發前可先用 LINE 確認當期展示床款與預約時段，再到永和中正店用相同姿勢慢慢比較。
         </p>
       </div>
     </section>
 
     <!-- 底部 CTA -->
     <div class="text-center pt-4 flex flex-wrap justify-center gap-3">
-      <RouterLink
-        to="/shop"
+      <a
+        :href="LINE_URL"
+        target="_blank"
+        rel="noopener"
         class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-sm font-bold transition-colors"
       >
-        <span>逛逛永吉床墊</span>
+        <span>LINE 問闆娘（h668899）</span>
         <ArrowRight class="w-4 h-4" />
-      </RouterLink>
+      </a>
       <RouterLink
         to="/stores"
         class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#f5f5f5] hover:bg-[#e5e6e0] text-[#3c3c3c] text-sm font-bold transition-colors"
