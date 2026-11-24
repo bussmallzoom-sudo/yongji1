@@ -11,7 +11,7 @@ import {
   X,
   HeartHandshake,
 } from 'lucide-vue-next'
-import { PRODUCTS, LINE_URL, STORE_ADDRESS, STORE_PHONE_DISPLAY, formatNTD } from '../data/products'
+import { PRODUCTS, LINE_URL, STORE_ADDRESS, STORE_PHONE_DISPLAY, assetUrl, formatNTD } from '../data/products'
 
 const mainMattress = PRODUCTS[0]
 const selectedVariant = ref(mainMattress.variants[1])
@@ -32,7 +32,7 @@ const springCards = [
     tag: '偏硬支撐',
     title: '紮實挺拔、不易下陷',
     desc: '適合習慣傳統硬床或喜歡翻身輕鬆好施力的人，躺下去整個人被穩穩托住。',
-    image: '/images/milo.jpg',
+    image: assetUrl('/images/milo.jpg'),
     wide: true,
   },
   {
@@ -40,21 +40,21 @@ const springCards = [
     tag: '均衡適中',
     title: '貼合與支撐的平衡點',
     desc: '不會過軟塌陷，也不會硬到壓迫肩膀，適合軟硬拿不定的人當作試躺基準。',
-    image: '/images/venus.jpg',
+    image: assetUrl('/images/venus.jpg'),
   },
   {
     num: '03',
     tag: '雙人低干擾',
     title: '獨立受力・減少晃動',
     desc: '每顆彈簧獨立受力，減少伴侶翻身或上下床時的彼此干擾。',
-    image: '/images/sleep-elf.jpg',
+    image: assetUrl('/images/sleep-elf.jpg'),
   },
   {
     num: '04',
     tag: '一對一試躺',
     title: '滿足兩人不同軟硬需求',
     desc: '夫妻兩人的睡感不同，可以一起到店用相同順序比較，找出彼此都舒服的交集。',
-    image: '/images/store-showroom.png',
+    image: assetUrl('/images/store-showroom.png'),
   },
 ]
 
@@ -65,7 +65,7 @@ const sensesCards = [
     tag: '先聊感受',
     title: '說說現在睡起來哪裡不習慣',
     desc: '不需要先背材質或硬度名詞！先告訴闆娘目前睡的床、常見睡姿與最在意的問題，從真實體感出發。',
-    image: '/images/product-pillow.png',
+    image: assetUrl('/images/product-pillow.png'),
     wide: true,
   },
   {
@@ -73,14 +73,14 @@ const sensesCards = [
     tag: '縮小選項',
     title: '先看三張，不用一次看三十張',
     desc: '把複雜規格變成能感受的差異，先挑出三張門市展示床款示範比較節奏。',
-    image: '/images/milo.jpg',
+    image: assetUrl('/images/milo.jpg'),
   },
   {
     num: '03',
     tag: '慢慢試躺',
     title: '用同樣姿勢比較，再放心決定',
     desc: '材質會解釋、差異會陪你試；真正要留下的，是每天都願意躺回去的舒服感受。',
-    image: '/images/store-showroom.png',
+    image: assetUrl('/images/store-showroom.png'),
   },
 ]
 
@@ -213,7 +213,7 @@ const chatOpen = ref(false)
               preload="auto"
               class="w-full h-full object-cover object-center"
             >
-              <source src="/videos/hero-loop.mp4" type="video/mp4" />
+              <source :src="assetUrl('/videos/hero-loop.mp4')" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -302,7 +302,7 @@ const chatOpen = ref(false)
 
         <div v-reveal class="bg-white rounded-[40px] shadow-sm border border-[#e5e7eb]/60 px-6 py-10 sm:px-16 sm:py-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-6">
-            <img src="/images/store-showroom.png" alt="永吉床墊永和中正店體驗空間" class="w-full aspect-4/3 object-cover rounded-3xl" />
+            <img :src="assetUrl('/images/store-showroom.png')" alt="永吉床墊永和中正店體驗空間" class="w-full aspect-4/3 object-cover rounded-3xl" />
           </div>
 
           <div class="lg:col-span-6 space-y-6 text-sm sm:text-[15px] text-[#3c3c3c] leading-[1.9] font-normal">
@@ -344,7 +344,7 @@ const chatOpen = ref(false)
             preload="auto"
             class="w-full max-h-[680px] object-cover"
           >
-            <source src="/videos/hybrid-pan.mp4" type="video/mp4" />
+            <source :src="assetUrl('/videos/hybrid-pan.mp4')" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -431,7 +431,7 @@ const chatOpen = ref(false)
 
         <div class="mb-10 rounded-[32px] overflow-hidden border border-[#e5e7eb] bg-[#f5f5f5]">
           <img
-            src="/images/edge-reading.png"
+            :src="assetUrl('/images/edge-reading.png')"
             alt="床邊支撐強化 坐床沿穩固不塌陷"
             class="w-full max-h-[620px] object-cover"
           />
@@ -537,7 +537,7 @@ const chatOpen = ref(false)
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#f5f5f5] rounded-[36px] p-6 sm:p-10">
           <div class="md:col-span-6">
-            <img src="/images/milo.jpg" alt="永吉精選展示床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
+            <img :src="assetUrl('/images/milo.jpg')" alt="永吉精選展示床墊" class="w-full aspect-4/3 object-cover rounded-3xl bg-white" />
           </div>
 
           <div class="md:col-span-6 space-y-6">

@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { Phone, Menu, X, ChevronDown, Store, MessageCircle } from 'lucide-vue-next'
-import { LINE_URL, STORE_PHONE_TEL } from '../data/products'
+import { LINE_URL, STORE_PHONE_TEL, assetUrl } from '../data/products'
 
 const route = useRoute()
 const mobileMenuOpen = ref(false)
@@ -14,9 +14,9 @@ const navDropdowns = [
     id: 'mattress',
     label: '主力床墊',
     items: [
-      { name: '01 精選展示床款', to: '/product/yongji-model-01', image: '/images/milo.jpg' },
-      { name: '02 精選展示床款', to: '/product/yongji-model-02', image: '/images/venus.jpg' },
-      { name: '03 精選展示床款', to: '/product/yongji-model-03', image: '/images/sleep-elf.jpg' },
+      { name: '01 精選展示床款', to: '/product/yongji-model-01', image: assetUrl('/images/milo.jpg') },
+      { name: '02 精選展示床款', to: '/product/yongji-model-02', image: assetUrl('/images/venus.jpg') },
+      { name: '03 精選展示床款', to: '/product/yongji-model-03', image: assetUrl('/images/sleep-elf.jpg') },
     ],
   },
 ]

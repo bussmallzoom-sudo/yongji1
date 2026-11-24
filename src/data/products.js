@@ -12,6 +12,15 @@ export const STORE_ADDRESS = '新北市永和區中正路18號'
 export const STORE_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=新北市永和區中正路18號'
 
 /**
+ * 自動補上部署基底路徑（相容根目錄與 GitHub Pages 子路徑 /yongji1/）
+ */
+export function assetUrl(path) {
+  const base = import.meta.env.BASE_URL || '/'
+  const clean = path.replace(/^\/+/, '')
+  return `${base}${clean}`
+}
+
+/**
  * 產品展示資料（已移除法規禁用字與待確認規格，價格以門市與 LINE 報價為準）
  */
 export const PRODUCTS = [
@@ -23,7 +32,7 @@ export const PRODUCTS = [
     category: 'featured',
     badge: '01 門市展示',
     firmness: '均衡支撐・歡迎到店試躺',
-    images: ['/images/milo.jpg', '/images/venus.jpg', '/images/sleep-elf.jpg'],
+    images: [assetUrl('/images/milo.jpg'), assetUrl('/images/venus.jpg'), assetUrl('/images/sleep-elf.jpg')],
     highlights: [
       '先聊感受、縮小選項，適合拿不定軟硬度的睡眠需求',
       '展示尺寸與當期價格，歡迎透過 LINE（h668899）或到店確認',
@@ -51,7 +60,7 @@ export const PRODUCTS = [
     category: 'featured',
     badge: '02 門市展示',
     firmness: '雙人低干擾體驗',
-    images: ['/images/venus.jpg', '/images/milo.jpg', '/images/sleep-elf.jpg'],
+    images: [assetUrl('/images/venus.jpg'), assetUrl('/images/milo.jpg'), assetUrl('/images/sleep-elf.jpg')],
     highlights: [
       '適合「兩人感受不同」的雙人共睡比較',
       '獨立筒各別受力，減少翻身時的彼此干擾',
@@ -78,7 +87,7 @@ export const PRODUCTS = [
     category: 'featured',
     badge: '03 門市展示',
     firmness: '偏硬、支撐紮實、不易下陷',
-    images: ['/images/sleep-elf.jpg', '/images/milo.jpg', '/images/venus.jpg'],
+    images: [assetUrl('/images/sleep-elf.jpg'), assetUrl('/images/milo.jpg'), assetUrl('/images/venus.jpg')],
     highlights: [
       '適合長輩喜歡偏硬、好翻身，或習慣挺拔睡感的使用者',
       '躺下去整個人被穩穩托住，起身坐床沿穩固好施力',
@@ -111,7 +120,7 @@ export const STORES = [
     hours: '採預約／歡迎先透過 LINE（h668899）確認時段',
     phone: '02-8941-4197',
     features: ['闆娘一對一縮小選床範圍', '多款展示床款現場試躺', '不急著推銷・實際躺過再決定'],
-    image: '/images/store-showroom.png',
+    image: assetUrl('/images/store-showroom.png'),
   },
 ]
 
