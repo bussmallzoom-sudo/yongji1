@@ -162,14 +162,6 @@ const chatOpen = ref(false)
           <span class="hidden xl:inline text-xs text-[#79726c]">
             不急著賣你，先陪你選對・<strong class="text-[#3c3c3c] font-medium">永和中正店（{{ STORE_ADDRESS }}）</strong>
           </span>
-          <a
-            :href="LINE_URL"
-            target="_blank"
-            rel="noopener"
-            class="px-6 py-1.5 rounded-full bg-[#4a7c59] hover:bg-[#3a6346] text-white text-xs font-medium transition-colors"
-          >
-            LINE 問闆娘
-          </a>
         </div>
       </div>
     </div>
